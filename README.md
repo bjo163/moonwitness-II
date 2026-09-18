@@ -50,6 +50,37 @@ NEXT ERA
 
 The web app is an interface to the platform. The repository is the source of truth for the platform's content and contracts.
 
+## Current Web Surfaces
+
+```
+/
+├── /witness
+├── /events
+├── /messages
+├── /fault-lines
+├── /past-presence
+├── /crew
+├── /timeline
+├── /constellation
+└── /entity/[id]
+```
+
+The canonical narrative datasets live under `data/`:
+
+```
+events
+witnesses
+messages
+seductions
+fault-lines
+past-presence
+changes
+eras
+characters
+relationships
+graph
+```
+
 See the [Platform Blueprint](docs/PLATFORM_BLUEPRINT.md) and [Fast Track Roadmap](docs/ROADMAP.md).
 
 ## Run the MVP
@@ -68,7 +99,7 @@ npm run web:build
 npm run web:start
 ```
 
-The web app reads the canonical YAML content from `data/` through its server-side content loader.
+The web app reads canonical YAML content from `data/` through its server-side content loader.
 
 ## Start Here
 
