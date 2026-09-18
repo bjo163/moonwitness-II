@@ -4,6 +4,7 @@ const links = [
   ["Home", "/"],
   ["Story", "/storytelling"],
   ["Explore", "/explore"],
+  ["Archive", "/archive"],
   ["Journey", "/journey"],
   ["Witness", "/witness"],
   ["Events", "/events"],
