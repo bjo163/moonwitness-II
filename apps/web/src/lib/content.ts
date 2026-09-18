@@ -47,3 +47,28 @@ export const getRelationships = () =>
 
 export const getGraph = () =>
   loadYaml<{ version: string; graph: { nodes: string[]; traversal: string[] } }>("data/graph.yaml").graph;
+
+export const getEntity = (id: string) => {
+  const characters = getCharacters();
+  const eras = getEras();
+  const relationships = getRelationships();
+  const loop = getFirstLoop();
+
+  const character = characters.find((item) => item.id === id);
+  if (character) return { id, type: "CHARACTER", title: character.name, data: character };
+
+  const era = eras.find((item) => item.id === id);
+  if (era) return { id, type: "ERA", title: era.title, data: era };
+
+  const loopEntries = Object.entries(loop);
+  for (const [type, value] of loopEntries) {
+    if (value && typeof value === "object" && "id" in value && value.id === id) {
+      return { id, type: type.toUpperCase(), title: "title" in value ? value.title : id, data: value };
+    }
+  }
+
+  const relationship = relationships.find((item) => item.id === id);
+  if (relationship) return { id, type: "RELATIONSHIP", title: relationship.type, data: relationship };
+
+  return null;
+};
