@@ -69,6 +69,42 @@ relationships:
     type: past_presence
     status: draft
 
+  - id: rel_past_presence_promoting
+    from: past_presence_001
+    to: promoting_001
+    type: promotes
+    status: draft
+
+  - id: rel_promoting_conflict
+    from: promoting_001
+    to: conflict_001
+    type: enters_conflict
+    status: draft
+
+  - id: rel_conflict_sanity
+    from: conflict_001
+    to: sanity_last_breath_001
+    type: threshold
+    status: draft
+
+  - id: rel_sanity_change
+    from: sanity_last_breath_001
+    to: change_001
+    type: transforms
+    status: draft
+
+  - id: rel_event_villain
+    from: event_001
+    to: villain_001
+    type: contextual_force
+    status: draft
+
+  - id: rel_event_cab
+    from: event_001
+    to: cab_001
+    type: change_review
+    status: draft
+
   - id: rel_past_presence_next_phase
     from: past_presence_001
     to: era_07
