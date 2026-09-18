@@ -8,6 +8,7 @@ const links = [
   ["Messages", "/messages"],
   ["Seduction", "/seduction"],
   ["Fault Lines", "/fault-lines"],
+  ["Exposure", "/exposure"],
   ["Past Presence", "/past-presence"],
   ["Change", "/change"],
   ["Crew", "/crew"],
