@@ -180,6 +180,11 @@ type FirstLoopManifest = {
   fault_line: string;
   exposure: string;
   past_presence: string;
+  promoting: string;
+  conflict: string;
+  sanity_last_breath: string;
+  villain: string;
+  change_advisory_board: string;
   transition?: {
     audit: string;
     evaluation: string;
@@ -252,6 +257,11 @@ export const getFirstLoop = () => {
   const faultLine = getFaultLines().find((item) => item.id === manifest.fault_line);
   const exposure = getExposures().find((item) => item.id === manifest.exposure);
   const pastPresence = getPastPresences().find((item) => item.id === manifest.past_presence);
+  const promoting = getPromoting().find((item) => item.id === manifest.promoting);
+  const conflict = getConflicts().find((item) => item.id === manifest.conflict);
+  const sanityLastBreath = getSanityLastBreath().find((item) => item.id === manifest.sanity_last_breath);
+  const villain = getVillains().find((item) => item.id === manifest.villain);
+  const changeAdvisoryBoard = getChangeAdvisoryBoard().find((item) => item.id === manifest.change_advisory_board);
   const change = getChanges().find((item) => item.id === manifest.change);
 
   return {
@@ -263,6 +273,11 @@ export const getFirstLoop = () => {
     fault_line: faultLine,
     exposure,
     past_presence: pastPresence,
+    promoting,
+    conflict,
+    sanity_last_breath: sanityLastBreath,
+    villain,
+    change_advisory_board: changeAdvisoryBoard,
     transition: manifest.transition,
     change
   };
