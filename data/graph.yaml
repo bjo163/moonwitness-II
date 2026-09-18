@@ -1,0 +1,36 @@
+version: "0.1"
+
+graph:
+  nodes:
+    - char_the_shadow
+    - char_a_lah
+    - char_dogs_from_universe
+    - char_blue_witch
+    - char_dj_david
+    - char_walter_white
+    - char_electric_forest
+    - char_indestructible
+    - char_jhnny_depp
+    - era_00
+    - era_07
+    - event_001
+    - witness_001
+    - msg_001
+    - seduction_001
+    - fault_001
+    - past_presence_001
+    - change_001
+
+  traversal:
+    - "CHARACTER → EVENT"
+    - "EVENT → WITNESS"
+    - "WITNESS → MESSAGE"
+    - "EVENT → SEDUCTION"
+    - "EVENT → FAULT_LINE"
+    - "EVENT → PAST_PRESENCE"
+    - "PAST_PRESENCE → AUDIT"
+    - "AUDIT → EVALUATION"
+    - "EVALUATION → BALANCING"
+    - "BALANCING → PROMOTING"
+    - "PROMOTING → CHANGE"
+    - "CHANGE → ERA"
