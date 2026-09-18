@@ -85,52 +85,64 @@ The platform should be:
 
 ## 05 — MVP
 
-The first platform release only needs:
+The current MVP surface is:
 
 ```
-Entities
-Events
-Witness Logs
-Messages
-Relationships
-Timeline
-Past Presence
+BROWSE
+ ├── Events
+ ├── Witness
+ ├── Messages
+ ├── Fault Lines
+ ├── Past Presence
+ ├── Crew
+ └── Timeline
+
+EXPLORE
+ ├── Constellation
+ └── Entity View
+
+SOURCE OF TRUTH
+ └── data/*.yaml
 ```
 
 Narrative systems can be layered on incrementally:
 
 ```
 Seduction
-Fault Lines
 Exposure
 Villains
+Conflict
 Sanity's Last Breath
 Promoting
 ```
 
 ## 06 — INTERFACE
 
-Initial web experience:
+Current web experience:
 
 ```
 HOME
  ↓
-THE MOON
- ↓
 THE WITNESS
  ↓
-THE CREW
+EVENTS
  ↓
-EVENT
+MESSAGES
  ↓
-MESSAGE
- ↓
-CONSTELLATION
+FAULT LINES
  ↓
 PAST PRESENCE
  ↓
+CREW / TIMELINE
+ ↓
+CONSTELLATION
+ ↓
+ENTITY
+ ↓
 NEXT PHASE
 ```
+
+The user remains **THE OBSERVER**: browse, notice, follow, connect, witness, and explore without forcing every unknown into a conclusion.
 
 ## 07 — PLATFORM BOUNDARY
 
