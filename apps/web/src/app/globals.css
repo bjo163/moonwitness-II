@@ -599,3 +599,69 @@ blockquote {
   border-color: var(--accent);
   color: var(--accent);
 }
+
+@keyframes moon-pulse {
+  0%, 100% { box-shadow: 0 0 22px rgba(169,255,234,.05); transform: translate(-50%, -50%) scale(1); }
+  50% { box-shadow: 0 0 48px rgba(169,255,234,.16); transform: translate(-50%, -50%) scale(1.025); }
+}
+
+@keyframes signal-scan {
+  0% { transform: translateX(-110%); opacity: 0; }
+  15% { opacity: .8; }
+  70% { opacity: .35; }
+  100% { transform: translateX(110%); opacity: 0; }
+}
+
+.hero-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-line::after {
+  content: "";
+  position: absolute;
+  inset: -1px auto -1px 0;
+  width: 22%;
+  background: var(--accent);
+  filter: blur(2px);
+  animation: signal-scan 5s ease-in-out infinite;
+}
+
+.constellation-moon {
+  animation: moon-pulse 5s ease-in-out infinite;
+}
+
+.flow-node,
+.card,
+.feature-card,
+.timeline-item,
+.entity-open,
+.home-links a {
+  transition: border-color .2s ease, transform .2s ease, background .2s ease, opacity .2s ease;
+}
+
+.flow-node:hover {
+  transform: translateY(-2px);
+  border-color: rgba(169,255,234,.32);
+  background: rgba(255,255,255,.025);
+}
+
+.card:hover,
+.feature-card:hover {
+  border-color: rgba(169,255,234,.2);
+}
+
+.entity-open:hover {
+  background: rgba(169,255,234,.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
