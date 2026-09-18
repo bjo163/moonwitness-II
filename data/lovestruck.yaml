@@ -1,0 +1,11 @@
+version: "0.1"
+
+lovestruck:
+  - id: lovestruck_001
+    title: "Lovestruck by the Unknown"
+    event: event_001
+    attraction: "Something in the signal feels impossible to ignore."
+    vulnerability: "Attention becomes emotionally involved."
+    tension: "Desire and uncertainty coexist."
+    movement: "Connection changes the observer."
+    status: draft
