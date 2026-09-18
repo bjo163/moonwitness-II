@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PlatformNav } from "@/components/platform-nav";
-import { getExposures, getFirstLoop } from "@/lib/content";
+import { getFirstLoop } from "@/lib/content";
 
 export const metadata = {
   title: "Journey — MoonWitness"
@@ -14,8 +14,6 @@ type Step = {
 
 export default function JourneyPage() {
   const loop = getFirstLoop();
-  const exposure = getExposures()[0];
-
   const steps: Step[] = [
     {
       label: "EVENT",
@@ -44,8 +42,8 @@ export default function JourneyPage() {
     },
     {
       label: "EXPOSURE",
-      text: exposure?.title ?? "Unknown exposure",
-      id: exposure?.id
+      text: loop.exposure?.title ?? "Unknown exposure",
+      id: loop.exposure?.id
     },
     {
       label: "PAST PRESENCE",
