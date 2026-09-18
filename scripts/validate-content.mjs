@@ -78,6 +78,24 @@ for (const id of referencedIds) {
   }
 }
 
+const loopReferences = [
+  ["event", datasets.loop.event],
+  ["witness", datasets.loop.witness],
+  ["message", datasets.loop.message],
+  ["seduction", datasets.loop.seduction],
+  ["fault_line", datasets.loop.fault_line],
+  ["past_presence", datasets.loop.past_presence],
+  ["change", datasets.loop.change],
+];
+
+for (const [section, id] of loopReferences) {
+  if (typeof id !== "string" || !id) {
+    fail(`Invalid first-loop reference: ${section}`);
+  } else if (!ids.has(id)) {
+    fail(`Unknown first-loop reference: ${section} → ${id}`);
+  }
+}
+
 const requiredStatuses = new Set([
   "draft",
   "review",
