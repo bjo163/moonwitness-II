@@ -63,9 +63,9 @@
 - [x] First narrative journey surface
 - [x] Narrative core surfaces: Seduction, Exposure, Promoting, Conflict, Sanity's Last Breath
 - [x] Narrative support surfaces: Villains, Change Advisory Board, Chasing Heart, Lovestruck, Breath Electric, End Of An Era
-- [ ] Motion
+- [x] Motion layer with reduced-motion support
+- [x] Narrative transitions as linked entity steps
 - [ ] Interactive discovery polish
-- [ ] Narrative transitions
 - [ ] Full journey with richer real-world content
 
 ## PHASE 5 — SCALE ONLY WHEN NEEDED
