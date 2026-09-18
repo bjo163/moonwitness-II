@@ -1,46 +1,12 @@
 version: "0.1"
 
-event:
-  id: event_001
-  title: "The First Witness"
-  era: era_00
-  status: draft
-  what_happened: "Initial placeholder event for the first complete platform loop."
-
-witness:
-  id: witness_001
-  event: event_001
-  witnessed_by:
-    - "THE MOON"
-  observation: "A signal was noticed."
-  status: draft
-
-message:
-  id: msg_001
-  type: SIGNAL
-  event: event_001
-  witness: witness_001
-  message: "We share a message."
-  status: draft
-
-seduction:
-  id: seduction_001
-  type: CURIOSITY
-  event: event_001
-  status: draft
-
-fault_line:
-  id: fault_001
-  title: "The First Fault Line"
-  event: event_001
-  status: draft
-
-past_presence:
-  id: past_presence_001
-  title: "The First Echo"
-  source_event: event_001
-  what_remains: "A trace from the past remains in the present."
-  status: draft
+# Composition only. Canonical entities live in their dedicated datasets.
+event: event_001
+witness: witness_001
+message: msg_001
+seduction: seduction_001
+fault_line: fault_001
+past_presence: past_presence_001
 
 transition:
   audit: "What is actually here?"
@@ -48,8 +14,4 @@ transition:
   balancing: "What should be kept, changed, reduced, restored, or released?"
   promoting: "What deserves to continue?"
 
-change:
-  id: change_001
-  event: event_001
-  next_phase: "NEXT PHASE"
-  status: draft
+change: change_001
