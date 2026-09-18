@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 type Relationship = {
@@ -161,6 +162,10 @@ export function ConstellationExplorer({ nodes, relationships }: Props) {
             );
           })}
         </div>
+
+        <Link className="entity-open" href={`/entity/${selected}`}>
+          OPEN ENTITY ↗
+        </Link>
 
         {!related.length ? (
           <p className="muted">
