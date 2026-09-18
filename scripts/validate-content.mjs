@@ -36,6 +36,7 @@ const datasets = {
   lovestruck: readYaml("data/lovestruck.yaml"),
   breathElectric: readYaml("data/breath-electric.yaml"),
   endOfAnEra: readYaml("data/end-of-an-era.yaml"),
+  conflicts: readYaml("data/conflicts.yaml"),
   loop: readYaml("data/first-loop.yaml"),
   relationships: readYaml("data/relationships.yaml"),
   graph: readYaml("data/graph.yaml"),
@@ -73,6 +74,7 @@ const collectionEntries = [
   ["lovestruck", datasets.lovestruck.lovestruck],
   ["breath-electric", datasets.breathElectric.breath_electric],
   ["end-of-an-era", datasets.endOfAnEra.end_of_an_era],
+  ["conflicts", datasets.conflicts.conflicts],
 ];
 
 for (const [source, items] of collectionEntries) {
@@ -104,6 +106,11 @@ const loopReferences = [
   ["fault_line", datasets.loop.fault_line],
   ["exposure", datasets.loop.exposure],
   ["past_presence", datasets.loop.past_presence],
+  ["promoting", datasets.loop.promoting],
+  ["conflict", datasets.loop.conflict],
+  ["sanity_last_breath", datasets.loop.sanity_last_breath],
+  ["villain", datasets.loop.villain],
+  ["change_advisory_board", datasets.loop.change_advisory_board],
   ["change", datasets.loop.change],
 ];
 
