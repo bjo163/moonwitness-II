@@ -330,3 +330,10 @@ export const getEntity = (id: string) => {
 
   return null;
 };
+
+
+export const getAllEntities = () => {
+  return getGraph().nodes
+    .map((id) => getEntity(id))
+    .filter((entity): entity is NonNullable<ReturnType<typeof getEntity>> => Boolean(entity));
+};
