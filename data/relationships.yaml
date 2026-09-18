@@ -105,6 +105,30 @@ relationships:
     type: change_review
     status: draft
 
+  - id: rel_event_chasing_heart
+    from: event_001
+    to: chasing_heart_001
+    type: emotional_pursuit
+    status: draft
+
+  - id: rel_event_lovestruck
+    from: event_001
+    to: lovestruck_001
+    type: emotional_attachment
+    status: draft
+
+  - id: rel_event_breath_electric
+    from: event_001
+    to: breath_electric_001
+    type: atmosphere
+    status: draft
+
+  - id: rel_event_end_era
+    from: event_001
+    to: end_era_001
+    type: era_closure
+    status: draft
+
   - id: rel_past_presence_next_phase
     from: past_presence_001
     to: era_07
