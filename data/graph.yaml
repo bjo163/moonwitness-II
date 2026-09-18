@@ -20,7 +20,12 @@ graph:
     - fault_001
     - exposure_001
     - past_presence_001
+    - promoting_001
+    - conflict_001
+    - sanity_last_breath_001
     - change_001
+    - villain_001
+    - cab_001
 
   traversal:
     - "CHARACTER → EVENT"
@@ -34,5 +39,9 @@ graph:
     - "AUDIT → EVALUATION"
     - "EVALUATION → BALANCING"
     - "BALANCING → PROMOTING"
-    - "PROMOTING → CHANGE"
+    - "PROMOTING → CONFLICT"
+    - "CONFLICT → SANITY'S LAST BREATH"
+    - "SANITY'S LAST BREATH → CHANGE"
     - "CHANGE → ERA"
+    - "EVENT → VILLAIN (CONTEXTUAL)"
+    - "EVENT → CHANGE ADVISORY BOARD"
