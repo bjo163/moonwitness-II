@@ -1,0 +1,15 @@
+version: "0.1"
+
+conflicts:
+  - id: conflict_001
+    title: "The First Conflict"
+    event: event_001
+    source: "The story pulls in more than one direction."
+    forces:
+      - "What was witnessed"
+      - "What is believed"
+      - "What is desired"
+    tension: "Different readings compete without requiring immediate resolution."
+    revelation: "The conflict makes the underlying fault line impossible to ignore."
+    next_stage: sanity_last_breath_001
+    status: draft
