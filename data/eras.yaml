@@ -1,0 +1,34 @@
+version: "0.1"
+eras:
+  - id: era_00
+    title: "BEFORE LIGHT"
+    order: 0
+    status: active
+  - id: era_01
+    title: "THE ARRIVAL"
+    order: 1
+    status: draft
+  - id: era_02
+    title: "THE WITNESS"
+    order: 2
+    status: draft
+  - id: era_03
+    title: "THE RUNAWAYS"
+    order: 3
+    status: draft
+  - id: era_04
+    title: "THE EXPOSURE"
+    order: 4
+    status: draft
+  - id: era_05
+    title: "THE CHANGE"
+    order: 5
+    status: draft
+  - id: era_06
+    title: "END OF AN ERA"
+    order: 6
+    status: draft
+  - id: era_07
+    title: "NEXT PHASE"
+    order: 7
+    status: draft
