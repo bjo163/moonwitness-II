@@ -235,6 +235,7 @@ export const getChasingHeart = () => getNarrativeEntries("data/chasing-heart.yam
 export const getLovestruck = () => getNarrativeEntries("data/lovestruck.yaml", "lovestruck");
 export const getBreathElectric = () => getNarrativeEntries("data/breath-electric.yaml", "breath_electric");
 export const getEndOfAnEra = () => getNarrativeEntries("data/end-of-an-era.yaml", "end_of_an_era");
+export const getConflicts = () => getNarrativeEntries("data/conflicts.yaml", "conflicts");
 
 export const getRelationships = () =>
   loadYaml<{ version: string; relationships: Relationship[] }>("data/relationships.yaml").relationships;
@@ -291,6 +292,7 @@ export const getEntity = (id: string) => {
     ["LOVESTRUCK", getLovestruck()],
     ["BREATH_ELECTRIC", getBreathElectric()],
     ["END_OF_AN_ERA", getEndOfAnEra()],
+    ["CONFLICT", getConflicts()],
   ];
 
   for (const [type, items] of collections) {
