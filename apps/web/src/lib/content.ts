@@ -171,6 +171,7 @@ type FirstLoopManifest = {
   message: string;
   seduction: string;
   fault_line: string;
+  exposure: string;
   past_presence: string;
   transition?: {
     audit: string;
@@ -229,6 +230,7 @@ export const getFirstLoop = () => {
   const message = getMessages().find((item) => item.id === manifest.message);
   const seduction = getSeductionEntries().find((item) => item.id === manifest.seduction);
   const faultLine = getFaultLines().find((item) => item.id === manifest.fault_line);
+  const exposure = getExposures().find((item) => item.id === manifest.exposure);
   const pastPresence = getPastPresences().find((item) => item.id === manifest.past_presence);
   const change = getChanges().find((item) => item.id === manifest.change);
 
@@ -239,6 +241,7 @@ export const getFirstLoop = () => {
     message,
     seduction,
     fault_line: faultLine,
+    exposure,
     past_presence: pastPresence,
     transition: manifest.transition,
     change
