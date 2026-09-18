@@ -51,6 +51,7 @@
 - [x] Explore timeline
 - [x] Explore constellation
 - [x] Open entity view
+- [x] Follow one end-to-end narrative journey
 
 ## PHASE 4 — EXPERIENCE
 
@@ -58,10 +59,11 @@
 
 - [x] Moon / line visual system
 - [x] Constellation
+- [x] First narrative journey surface
 - [ ] Motion
 - [ ] Interactive discovery polish
 - [ ] Narrative transitions
-- [ ] Full journey without placeholder content
+- [ ] Full journey with richer real-world content
 
 ## PHASE 5 — SCALE ONLY WHEN NEEDED
 
