@@ -1,0 +1,94 @@
+version: "0.1"
+characters:
+  - id: char_the_shadow
+    type: character
+    name: "THE SHADOW"
+    aliases:
+      - "R"
+      - "163"
+      - "Dancer"
+      - "Runaway"
+      - "Not Untouched"
+      - "Actor"
+    alternate_identity: "THE DREAMER"
+    dreamer_aliases:
+      - "Runaway"
+      - "The Unremembered"
+      - "The Chosen One"
+      - "Dancer"
+      - "The Exposer"
+    birth: "Sebelum Ada Cahaya"
+    skills:
+      - "TOO GOOD"
+    tags:
+      - "runaway"
+      - "dreamer"
+      - "exposer"
+
+  - id: char_a_lah
+    type: character
+    name: "A LAH"
+    role:
+      - "THE BOSS"
+    aliases:
+      - "LiAlH₄"
+    nickname: "THE BATTERY"
+    witness_phrase: "Lesgo. JUST DO IT!!!"
+
+  - id: char_dogs_from_universe
+    type: character
+    name: "DOGS FROM UNIVERSE"
+    aliases:
+      - "MOH571"
+      - "THE STARS"
+      - "YOUJIZZ"
+      - "THE DREAMER"
+    skills:
+      - "PURA-PURA MATI"
+      - "BUCIN"
+      - "TIME TRAVEL"
+      - "INVISIBLE"
+      - "IMMORTAL"
+      - "LUPA"
+      - "ACTOR"
+      - "EMBALAP"
+    ultimate_skill: "WOE IS ME"
+
+  - id: char_blue_witch
+    type: character
+    name: "THE BLUE WITCH"
+    aliases:
+      - "MANSA MUSA"
+      - "BLUE EYES"
+    witness_phrase: "Lambreta!!"
+
+  - id: char_dj_david
+    type: character
+    name: "DJ DAVID"
+    aliases:
+      - "David"
+
+  - id: char_walter_white
+    type: character
+    name: "WALTER WHITE"
+    skills:
+      - "DOKTER BEDAH"
+
+  - id: char_electric_forest
+    type: character
+    name: "ELECTRIC FOREST"
+    aliases:
+      - "Cassade Pope"
+
+  - id: char_indestructible
+    type: character
+    name: "INDESTRUCTIBLE"
+    aliases:
+      - "THE FATHER"
+      - "THE RED FIRE"
+
+  - id: char_jhnny_depp
+    type: character
+    name: "JHNNY DEPP"
+    aliases:
+      - "Pirate of Carebean"
