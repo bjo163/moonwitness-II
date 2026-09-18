@@ -536,3 +536,46 @@ blockquote {
   .constellation-wrap { grid-template-columns: 1fr; }
   .constellation-stage, .constellation-panel { min-height: 520px; }
 }
+
+.entity-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+  gap: 12px;
+}
+
+.entity-json {
+  margin: 24px 0 0;
+  max-height: 520px;
+  overflow: auto;
+  white-space: pre-wrap;
+  color: #c7ced8;
+  font: 12px/1.7 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.entity-open {
+  display: inline-flex;
+  margin-top: 28px;
+  padding: 10px 12px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: .14em;
+}
+
+.entity-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.entity-card {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .entity-layout { grid-template-columns: 1fr; }
+}
