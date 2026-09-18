@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moonwitness/relationship.schema.json",
+  "title": "MoonWitness Relationship",
+  "type": "object",
+  "required": ["id", "from", "to", "type", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "from": { "type": "string" },
+    "to": { "type": "string" },
+    "type": { "type": "string" },
+    "strength": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "context": { "type": ["string", "null"] },
+    "source": { "type": ["string", "null"] },
+    "provenance": { "type": ["string", "null"] },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": true
+}
