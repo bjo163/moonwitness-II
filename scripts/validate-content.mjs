@@ -86,6 +86,7 @@ const loopReferences = [
   ["message", datasets.loop.message],
   ["seduction", datasets.loop.seduction],
   ["fault_line", datasets.loop.fault_line],
+  ["exposure", datasets.loop.exposure],
   ["past_presence", datasets.loop.past_presence],
   ["change", datasets.loop.change],
 ];
