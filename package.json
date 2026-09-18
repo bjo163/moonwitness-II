@@ -5,9 +5,15 @@
   "description": "MoonWitness Story & Witness Platform",
   "type": "module",
   "scripts": {
-    "validate:content": "node scripts/validate-content.mjs"
+    "validate:content": "node scripts/validate-content.mjs",
+    "web:dev": "npm --prefix apps/web run dev",
+    "web:build": "npm --prefix apps/web run build",
+    "web:start": "npm --prefix apps/web run start"
   },
   "dependencies": {
     "yaml": "^2.8.1"
-  }
+  },
+  "workspaces": [
+    "apps/web"
+  ]
 }
