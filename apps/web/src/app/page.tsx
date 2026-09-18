@@ -1,13 +1,21 @@
+import Link from "next/link";
+import { PlatformNav } from "@/components/platform-nav";
 import { getCharacters, getEras, getFirstLoop } from "@/lib/content";
 
-const nav = [
-  ["Moon", "#moon"],
-  ["Witness", "#witness"],
-  ["Crew", "#crew"],
-  ["Events", "#event"],
-  ["Messages", "#message"],
-  ["Past Presence", "#past-presence"],
-  ["Next Phase", "#next-phase"]
+const flow = [
+  "WITNESS",
+  "EVENT",
+  "MESSAGE",
+  "SEDUCTION",
+  "FAULT LINE",
+  "EXPOSURE",
+  "PAST PRESENCE",
+  "AUDIT",
+  "EVALUATION",
+  "BALANCING",
+  "PROMOTING",
+  "CHANGE",
+  "NEXT ERA"
 ] as const;
 
 export default function Home() {
@@ -17,17 +25,7 @@ export default function Home() {
 
   return (
     <main className="shell">
-      <header className="topbar">
-        <div className="brand">
-          <span className="brand-mark">◌</span>
-          <span>MOONWITNESS</span>
-        </div>
-        <nav aria-label="Primary">
-          {nav.map(([label, href]) => (
-            <a href={href} key={href}>{label}</a>
-          ))}
-        </nav>
-      </header>
+      <PlatformNav />
 
       <section className="hero" id="moon">
         <div className="eyebrow">STORY &amp; WITNESS PLATFORM</div>
@@ -51,12 +49,16 @@ export default function Home() {
           <h2>THE WITNESS</h2>
         </div>
         <div className="flow">
-          {["WITNESS", "EVENT", "MESSAGE", "SEDUCTION", "FAULT LINE", "EXPOSURE", "PAST PRESENCE", "PROMOTING", "CHANGE", "NEXT ERA"].map((item, index) => (
+          {flow.map((item, index) => (
             <div className="flow-node" key={item}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{item}</strong>
             </div>
           ))}
+        </div>
+        <div className="home-links">
+          <Link href="/journey">ENTER THE JOURNEY ↗</Link>
+          <Link href="/constellation">EXPLORE THE CONSTELLATION ↗</Link>
         </div>
       </section>
 
@@ -91,19 +93,54 @@ export default function Home() {
             <h3>{loop.event?.title}</h3>
             <p>{loop.event?.what_happened}</p>
             <span className="status">{loop.event?.status}</span>
+            {loop.event?.id ? (
+              <Link className="entity-open" href={"/entity/" + loop.event.id}>OPEN EVENT ↗</Link>
+            ) : null}
           </article>
           <article className="feature-card" id="message">
             <span className="label">MESSAGE</span>
             <h3>{loop.message?.message}</h3>
             <p>Witnessed through <strong>{loop.witness?.witnessed_by?.join(", ")}</strong>.</p>
             <p className="muted">{loop.witness?.observation}</p>
+            {loop.message?.id ? (
+              <Link className="entity-open" href={"/entity/" + loop.message.id}>OPEN MESSAGE ↗</Link>
+            ) : null}
           </article>
+        </div>
+      </section>
+
+      <section className="rail">
+        <div className="section-head">
+          <span>04</span>
+          <h2>THE NARRATIVE LAYERS</h2>
+        </div>
+        <div className="grid">
+          <Link className="card entity-card" href="/seduction">
+            <div className="card-index">01</div>
+            <h3>SEDUCTION</h3>
+            <p>What pulls us in?</p>
+          </Link>
+          <Link className="card entity-card" href="/fault-lines">
+            <div className="card-index">02</div>
+            <h3>FAULT LINES</h3>
+            <p>Where pressure lives.</p>
+          </Link>
+          <Link className="card entity-card" href="/past-presence">
+            <div className="card-index">03</div>
+            <h3>PAST PRESENCE</h3>
+            <p>What from the past is still here?</p>
+          </Link>
+          <Link className="card entity-card" href="/change">
+            <div className="card-index">04</div>
+            <h3>CHANGE</h3>
+            <p>What moves next?</p>
+          </Link>
         </div>
       </section>
 
       <section className="rail" id="past-presence">
         <div className="section-head">
-          <span>04</span>
+          <span>05</span>
           <h2>PAST PRESENCE</h2>
         </div>
         <div className="presence">
@@ -123,7 +160,7 @@ export default function Home() {
 
       <section className="rail" id="next-phase">
         <div className="section-head">
-          <span>05</span>
+          <span>06</span>
           <h2>NEXT PHASE</h2>
         </div>
         <div className="next-grid">
@@ -140,6 +177,7 @@ export default function Home() {
             <h3>Promote what deserves to continue.</h3>
           </div>
         </div>
+        <Link className="entity-open" href="/change">OPEN CHANGE ↗</Link>
       </section>
 
       <footer className="footer">
