@@ -13,6 +13,7 @@ graph:
     - char_jhnny_depp
     - era_00
     - era_07
+    - story_001
     - event_001
     - witness_001
     - msg_001
@@ -32,6 +33,7 @@ graph:
     - end_era_001
 
   traversal:
+    - "STORY → EVENT"
     - "CHARACTER → EVENT"
     - "EVENT → WITNESS"
     - "WITNESS → MESSAGE"
