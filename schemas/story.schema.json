@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moonwitness/story.schema.json",
+  "title": "MoonWitness Story",
+  "type": "object",
+  "required": ["id", "title", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string", "minLength": 1 },
+    "theme": { "type": ["string", "null"] },
+    "premise": { "type": ["string", "null"] },
+    "opening": { "type": ["string", "null"] },
+    "movement": { "type": "array", "items": { "type": "string" } },
+    "ending": { "type": ["string", "null"] },
+    "related_event": { "type": ["string", "null"] },
+    "related_witness": { "type": ["string", "null"] },
+    "related_message": { "type": ["string", "null"] },
+    "next_phase": { "type": ["string", "null"] },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": true
+}
