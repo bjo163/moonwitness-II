@@ -17,11 +17,20 @@ const fail = (message) => {
   process.exitCode = 1;
 };
 
-const eras = readYaml("data/eras.yaml");
-const characters = readYaml("data/characters.yaml");
-const loop = readYaml("data/first-loop.yaml");
-const relationships = readYaml("data/relationships.yaml");
-const graph = readYaml("data/graph.yaml");
+const datasets = {
+  eras: readYaml("data/eras.yaml"),
+  characters: readYaml("data/characters.yaml"),
+  events: readYaml("data/events.yaml"),
+  witnesses: readYaml("data/witnesses.yaml"),
+  messages: readYaml("data/messages.yaml"),
+  seductions: readYaml("data/seductions.yaml"),
+  faultLines: readYaml("data/fault-lines.yaml"),
+  pastPresences: readYaml("data/past-presence.yaml"),
+  changes: readYaml("data/changes.yaml"),
+  loop: readYaml("data/first-loop.yaml"),
+  relationships: readYaml("data/relationships.yaml"),
+  graph: readYaml("data/graph.yaml"),
+};
 
 const ids = new Set();
 const register = (id, source) => {
@@ -36,20 +45,29 @@ const register = (id, source) => {
   ids.add(id);
 };
 
-for (const era of eras.eras ?? []) register(era.id, "data/eras.yaml");
-for (const character of characters.characters ?? []) register(character.id, "data/characters.yaml");
+const collectionEntries = [
+  ["eras", datasets.eras.eras],
+  ["characters", datasets.characters.characters],
+  ["events", datasets.events.events],
+  ["witnesses", datasets.witnesses.witnesses],
+  ["messages", datasets.messages.messages],
+  ["seductions", datasets.seductions.seductions],
+  ["fault-lines", datasets.faultLines.fault_lines],
+  ["past-presence", datasets.pastPresences.past_presences],
+  ["changes", datasets.changes.changes],
+];
 
-for (const section of ["event", "witness", "message", "seduction", "fault_line", "past_presence", "change"]) {
-  if (loop[section]?.id) register(loop[section].id, "data/first-loop.yaml");
+for (const [source, items] of collectionEntries) {
+  for (const item of items ?? []) register(item.id, `data/${source}`);
 }
 
-for (const relationship of relationships.relationships ?? []) {
+for (const relationship of datasets.relationships.relationships ?? []) {
   register(relationship.id, "data/relationships.yaml");
 }
 
 const referencedIds = [
-  ...(graph.graph?.nodes ?? []),
-  ...((relationships.relationships ?? []).flatMap((r) => [r.from, r.to])),
+  ...(datasets.graph.graph?.nodes ?? []),
+  ...((datasets.relationships.relationships ?? []).flatMap((r) => [r.from, r.to])),
 ];
 
 for (const id of referencedIds) {
@@ -80,13 +98,13 @@ const validateStatuses = (items, source) => {
   }
 };
 
-validateStatuses(eras.eras, "data/eras.yaml");
-validateStatuses(characters.characters, "data/characters.yaml");
-validateStatuses(relationships.relationships, "data/relationships.yaml");
-for (const [section, value] of Object.entries(loop)) {
-  if (value && typeof value === "object" && "status" in value) {
-    validateStatuses([value], `data/first-loop.yaml:${section}`);
-  }
+for (const [source, items] of collectionEntries) {
+  validateStatuses(items, `data/${source}`);
+}
+validateStatuses(datasets.relationships.relationships, "data/relationships.yaml");
+
+if (datasets.loop.version !== "0.1") {
+  fail(`Unsupported first-loop version: ${datasets.loop.version}`);
 }
 
 if (!process.exitCode) {
