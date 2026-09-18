@@ -47,6 +47,7 @@
 - [x] Browse messages
 - [x] Browse fault lines
 - [x] Browse exposure records
+- [x] Witness Archive index
 - [x] Trace past presence
 - [x] Follow relationships
 - [x] Explore timeline
@@ -66,6 +67,7 @@
 - [x] Motion layer with reduced-motion support
 - [x] Narrative transitions as linked entity steps
 - [x] Lightweight entity explorer/search
+- [x] Witness Archive discovery
 - [ ] Interactive discovery polish
 - [ ] Full journey with richer real-world content
 
