@@ -1,13 +1,44 @@
-# Seed Data
+# MoonWitness Data
 
-This directory contains lightweight content-first seed data for MoonWitness.
+This directory is the platform's content source of truth.
 
-## Rule
+## Canonical layers
 
-Capture first. Refine later.
+```
+stories
+eras
+characters
+events
+witnesses
+messages
+seductions
+fault-lines
+exposures
+past-presence
+promoting
+conflicts
+sanity-last-breath
+changes
+change-advisory-board
+chasing-heart
+lovestruck
+breath-electric
+villains
+end-of-an-era
+relationships
+graph
+```
 
-The first loop is intentionally a placeholder:
+## First Loop
 
-Event → Witness → Message → Seduction → Fault Line → Past Presence → Audit → Evaluation → Balancing → Promoting → Change.
+`first-loop.yaml` is a composition manifest for the initial journey.
 
-Schemas may tighten after real usage proves what is needed.
+Canonical records live in their dedicated datasets.
+
+## Content rule
+
+One meaningful thing gets one stable ID and one natural home.
+
+Use relationships and references to connect it to the rest of the universe.
+
+> Capture first. Connect second. Refine later.
