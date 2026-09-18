@@ -1,0 +1,13 @@
+{
+  "name": "moonwitness",
+  "private": true,
+  "version": "0.1.0",
+  "description": "MoonWitness Story & Witness Platform",
+  "type": "module",
+  "scripts": {
+    "validate:content": "node scripts/validate-content.mjs"
+  },
+  "dependencies": {
+    "yaml": "^2.8.1"
+  }
+}
