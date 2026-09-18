@@ -1,4 +1,5 @@
 import { PlatformNav } from "@/components/platform-nav";
+import { ConstellationExplorer } from "@/components/constellation-explorer";
 import { getGraph, getRelationships } from "@/lib/content";
 
 export const metadata = {
@@ -8,14 +9,19 @@ export const metadata = {
 export default function ConstellationPage() {
   const graph = getGraph();
   const relationships = getRelationships();
+
   return (
     <main className="shell">
       <PlatformNav />
+
       <section className="rail page-intro">
         <div className="eyebrow">THE CONSTELLATION</div>
         <h1>CONNECTED UNIVERSE</h1>
-        <p className="lede">Relationships are links between entities, not duplicated source content.</p>
+        <p className="lede">
+          Follow the links. Select a node. Discover what the witness connects to next.
+        </p>
       </section>
+
       <section className="rail">
         <div className="presence">
           <article className="feature-card">
@@ -30,15 +36,22 @@ export default function ConstellationPage() {
           </article>
         </div>
       </section>
+
       <section className="rail">
-        <div className="grid">
-          {relationships.map((relationship) => (
-            <article className="card" key={relationship.id}>
-              <div className="card-index">{relationship.id}</div>
-              <h3>{relationship.type}</h3>
-              <p>{relationship.from} <span className="accent">↔</span> {relationship.to}</p>
-              {relationship.context ? <p className="muted">{relationship.context}</p> : null}
-            </article>
+        <ConstellationExplorer nodes={graph.nodes} relationships={relationships} />
+      </section>
+
+      <section className="rail">
+        <div className="section-head">
+          <span>TRACE</span>
+          <h2>THE GRAPH</h2>
+        </div>
+        <div className="flow">
+          {graph.traversal.map((step, index) => (
+            <div className="flow-node" key={step}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{step}</strong>
+            </div>
           ))}
         </div>
       </section>
