@@ -52,8 +52,28 @@ The web app is an interface to the platform. The repository is the source of tru
 
 See the [Platform Blueprint](docs/PLATFORM_BLUEPRINT.md) and [Fast Track Roadmap](docs/ROADMAP.md).
 
+## Run the MVP
+
+From the repository root:
+
+```bash
+npm install
+npm run web:dev
+```
+
+Production build:
+
+```bash
+npm run web:build
+npm run web:start
+```
+
+The web app reads the canonical YAML content from `data/` through its server-side content loader.
+
 ## Start Here
 
+- [Platform Blueprint](docs/PLATFORM_BLUEPRINT.md)
+- [Fast Track Roadmap](docs/ROADMAP.md)
 - [Master Blueprint](docs/MASTER_BLUEPRINT.md)
 - [Core Rules](docs/CORE_RULES.md)
 - [Canon](docs/CANON.md)
