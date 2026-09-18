@@ -39,3 +39,11 @@ const loadYaml = <T>(relativePath: string): T => {
 export const getEras = () => loadYaml<{ version: string; eras: Era[] }>("data/eras.yaml").eras;
 export const getCharacters = () => loadYaml<{ version: string; characters: Character[] }>("data/characters.yaml").characters;
 export const getFirstLoop = () => loadYaml<{ version: string } & FirstLoop>("data/first-loop.yaml");
+
+export const getRelationships = () =>
+  loadYaml<{ version: string; relationships: Array<{ id: string; from: string; to: string; type: string; context?: string; status: string }> }>(
+    "data/relationships.yaml"
+  ).relationships;
+
+export const getGraph = () =>
+  loadYaml<{ version: string; graph: { nodes: string[]; traversal: string[] } }>("data/graph.yaml").graph;
