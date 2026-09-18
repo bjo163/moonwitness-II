@@ -1,0 +1,24 @@
+version: "0.1"
+
+messages:
+  - id: msg_001
+    title: "The First Message"
+    from: THE_MOON
+    to: THE_OBSERVER
+    era: era_00
+    type: SIGNAL
+    witnesses:
+      - witness_001
+    context: "The first message carried by the witness loop."
+    message: "We share a message."
+    signal: "A signal was noticed."
+    related_event: event_001
+    related_people:
+      - char_the_shadow
+    related_fault_lines:
+      - fault_001
+    related_past_presence:
+      - past_presence_001
+    source: ORIGINAL
+    provenance: "MoonWitness seed loop"
+    status: draft
