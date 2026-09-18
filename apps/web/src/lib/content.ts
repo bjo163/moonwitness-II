@@ -26,6 +26,15 @@ type Event = {
   era?: string | null;
   status: string;
   what_happened: string;
+  actors?: string[];
+  witnesses?: string[];
+  seduction?: string[];
+  fault_lines?: string[];
+  exposure?: string[];
+  past_presence?: string[];
+  conflict?: string[];
+  sanity_last_breath?: string[];
+  consequence?: string | null;
   [key: string]: unknown;
 };
 
@@ -33,13 +42,42 @@ type Witness = {
   id: string;
   event: string;
   witnessed_by: string[];
+  era?: string | null;
+  signal?: string | null;
+  observation?: string | null;
+  message?: string | null;
+  seduction?: string | null;
+  fault_lines?: string[];
+  exposure?: string | null;
+  past_presence?: string | null;
+  conflict?: string | null;
+  sanity_last_breath?: string | null;
+  audit?: string | null;
+  evaluation?: string | null;
+  balancing?: string | null;
+  promoting?: string | null;
+  change?: string | null;
+  next_phase?: string | null;
   status: string;
   [key: string]: unknown;
 };
 
 type Message = {
   id: string;
+  title?: string | null;
+  from?: string | null;
+  to?: string | null;
+  date?: string | null;
+  era?: string | null;
+  type: string;
+  witnesses?: string[];
+  context?: string | null;
   message: string;
+  signal?: string | null;
+  related_event?: string | null;
+  related_people?: string[];
+  related_fault_lines?: string[];
+  related_past_presence?: string[];
   status: string;
   [key: string]: unknown;
 };
@@ -49,6 +87,7 @@ type Seduction = {
   title: string;
   type: string;
   event: string;
+  flow?: string[];
   status: string;
   [key: string]: unknown;
 };
@@ -56,6 +95,19 @@ type Seduction = {
 type FaultLine = {
   id: string;
   title: string;
+  type?: string | null;
+  entity_a?: string | null;
+  entity_b?: string | null;
+  trigger?: string | null;
+  pressure?: string | null;
+  tension?: string | null;
+  misalignment?: string | null;
+  hidden?: string | null;
+  risk?: string | null;
+  related_events?: string[];
+  related_messages?: string[];
+  related_characters?: string[];
+  related_era?: string | null;
   status: string;
   [key: string]: unknown;
 };
@@ -63,6 +115,21 @@ type FaultLine = {
 type PastPresence = {
   id: string;
   title: string;
+  origin?: string | null;
+  past_event?: string | null;
+  past_era?: string | null;
+  trace?: string | null;
+  what_remains?: string | null;
+  where_present?: string | null;
+  who_affected?: string[];
+  current_signal?: string | null;
+  current_influence?: string | null;
+  audit?: string | null;
+  evaluation?: string | null;
+  balancing?: string | null;
+  promoting?: string | null;
+  next_phase?: string | null;
+  related_entities?: string[];
   status: string;
   [key: string]: unknown;
 };
