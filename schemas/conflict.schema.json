@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moonwitness/conflict.schema.json",
+  "title": "MoonWitness Conflict",
+  "type": "object",
+  "required": ["id", "title", "event", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string", "minLength": 1 },
+    "event": { "type": "string" },
+    "source": { "type": ["string", "null"] },
+    "forces": { "type": "array", "items": { "type": "string" } },
+    "tension": { "type": ["string", "null"] },
+    "revelation": { "type": ["string", "null"] },
+    "next_stage": { "type": ["string", "null"] },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": true
+}
