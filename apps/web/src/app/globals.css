@@ -320,3 +320,48 @@ blockquote {
   .rail { padding: 70px 5vw; }
   .footer { flex-direction: column; align-items: start; }
 }
+
+
+.page-intro {
+  min-height: 58vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.timeline {
+  border-left: 1px solid var(--line);
+  margin-left: 24px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 24px;
+  padding: 26px 0 26px 24px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 34px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.timeline-item > span {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: .14em;
+}
+
+.timeline-item h3 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
