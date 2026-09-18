@@ -1,0 +1,21 @@
+version: "0.1"
+
+events:
+  - id: event_001
+    title: "The First Witness"
+    era: era_00
+    status: draft
+    what_happened: "Initial witness signal for the MoonWitness universe."
+    actors:
+      - char_the_shadow
+    witnesses:
+      - witness_001
+    seduction:
+      - seduction_001
+    fault_lines:
+      - fault_001
+    past_presence:
+      - past_presence_001
+    consequence: "The signal becomes the first trace in the witness graph."
+    source: ORIGINAL
+    provenance: "MoonWitness seed loop"
