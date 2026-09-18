@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moonwitness/message.schema.json",
+  "title": "MoonWitness Message",
+  "type": "object",
+  "required": ["id", "message", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": ["string", "null"] },
+    "from": { "type": ["string", "null"] },
+    "to": { "type": ["string", "null"] },
+    "date": { "type": ["string", "null"] },
+    "era": { "type": ["string", "null"] },
+    "type": { "type": "string" },
+    "witnesses": { "type": "array", "items": { "type": "string" } },
+    "context": { "type": ["string", "null"] },
+    "message": { "type": "string" },
+    "signal": { "type": ["string", "null"] },
+    "related_event": { "type": ["string", "null"] },
+    "related_people": { "type": "array", "items": { "type": "string" } },
+    "related_fault_lines": { "type": "array", "items": { "type": "string" } },
+    "related_past_presence": { "type": "array", "items": { "type": "string" } },
+    "source": { "type": ["string", "null"] },
+    "provenance": { "type": ["string", "null"] },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": true
+}
