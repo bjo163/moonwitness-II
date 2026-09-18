@@ -1,0 +1,24 @@
+version: "0.1"
+
+witnesses:
+  - id: witness_001
+    event: event_001
+    era: era_00
+    witnessed_by:
+      - THE_MOON
+    signal: "A signal was noticed."
+    observation: "A signal was noticed."
+    message: msg_001
+    seduction: seduction_001
+    fault_lines:
+      - fault_001
+    past_presence: past_presence_001
+    audit: "What is actually here?"
+    evaluation: "What matters?"
+    balancing: "What should be kept, changed, reduced, restored, or released?"
+    promoting: "What deserves to continue?"
+    change: change_001
+    next_phase: "NEXT PHASE"
+    source: ORIGINAL
+    provenance: "MoonWitness seed loop"
+    status: draft
