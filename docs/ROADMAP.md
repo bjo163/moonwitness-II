@@ -46,6 +46,7 @@
 - [x] Open witness logs
 - [x] Browse messages
 - [x] Browse fault lines
+- [x] Browse exposure records
 - [x] Trace past presence
 - [x] Follow relationships
 - [x] Explore timeline
