@@ -41,23 +41,27 @@
 
 **Goal:** make the graph usable.
 
-- Browse entities
-- Browse events
-- Open witness logs
-- Follow relationships
-- Explore timeline
-- Trace past presence
-- Discover next phase
+- [x] Browse entities
+- [x] Browse events
+- [x] Open witness logs
+- [x] Browse messages
+- [x] Browse fault lines
+- [x] Trace past presence
+- [x] Follow relationships
+- [x] Explore timeline
+- [x] Explore constellation
+- [x] Open entity view
 
 ## PHASE 4 — EXPERIENCE
 
 **Goal:** make MoonWitness feel like MoonWitness.
 
-- Moon / line visual system
-- Constellation
-- Motion
-- Interactive discovery
-- Narrative transitions
+- [x] Moon / line visual system
+- [x] Constellation
+- [ ] Motion
+- [ ] Interactive discovery polish
+- [ ] Narrative transitions
+- [ ] Full journey without placeholder content
 
 ## PHASE 5 — SCALE ONLY WHEN NEEDED
 
