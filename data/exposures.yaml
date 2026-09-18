@@ -1,0 +1,12 @@
+version: "0.1"
+
+exposures:
+  - id: exposure_001
+    title: "The First Exposure"
+    event: event_001
+    witness: witness_001
+    message: msg_001
+    fault_line: fault_001
+    what_is_exposed: "The signal itself: what was noticed, recorded, and connected."
+    what_remains_unknown: "Why the signal matters and what interpretation should follow."
+    status: draft
