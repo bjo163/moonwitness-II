@@ -64,7 +64,18 @@ export default function JourneyPage() {
     },
     {
       label: "PROMOTING",
-      text: loop.transition?.promoting ?? "Unknown promoting"
+      text: loop.promoting?.title ?? loop.transition?.promoting ?? "Unknown promoting",
+      id: loop.promoting?.id
+    },
+    {
+      label: "CONFLICT",
+      text: loop.conflict?.title ?? "Unknown conflict",
+      id: loop.conflict?.id
+    },
+    {
+      label: "SANITY'S LAST BREATH",
+      text: loop.sanity_last_breath?.title ?? "Unknown threshold",
+      id: loop.sanity_last_breath?.id
     },
     {
       label: "CHANGE",
