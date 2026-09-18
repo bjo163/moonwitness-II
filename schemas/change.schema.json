@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moonwitness/change.schema.json",
+  "title": "MoonWitness Change",
+  "type": "object",
+  "required": ["id", "event", "next_phase", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "event": { "type": "string" },
+    "next_phase": { "type": "string" },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": true
+}
