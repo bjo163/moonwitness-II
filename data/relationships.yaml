@@ -45,6 +45,24 @@ relationships:
     type: fault_line
     status: draft
 
+  - id: rel_event_exposure
+    from: event_001
+    to: exposure_001
+    type: exposure
+    status: draft
+
+  - id: rel_fault_exposure
+    from: fault_001
+    to: exposure_001
+    type: exposes
+    status: draft
+
+  - id: rel_exposure_past_presence
+    from: exposure_001
+    to: past_presence_001
+    type: leaves_trace
+    status: draft
+
   - id: rel_event_past_presence
     from: event_001
     to: past_presence_001
