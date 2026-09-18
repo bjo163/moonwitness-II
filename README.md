@@ -4,9 +4,9 @@
 > We Share A Message.
 
 **Core Theme:** END OF AN ERA  
-**Project Type:** Storytelling Universe · Living Archive · Interactive Narrative Experience
+**Project Type:** Story & Witness Platform · Living Archive · Interactive Narrative Experience
 
-MoonWitness connects people, identities, events, witnesses, messages, relationships, fault lines, past presence, exposure, change, and eras.
+MoonWitness is a lightweight platform for capturing, connecting, witnessing, preserving, and carrying meaningful things into the next phase. It connects people, identities, events, witnesses, messages, relationships, fault lines, past presence, exposure, change, and eras.
 
 ## Core Narrative
 
@@ -41,6 +41,16 @@ CHANGE
    ↓
 NEXT ERA
 ```
+
+## Platform
+
+> **MOONWITNESS = A STORY & WITNESS PLATFORM**
+>
+> Capture → Connect → Witness → Understand → Preserve → Promote → Move Forward
+
+The web app is an interface to the platform. The repository is the source of truth for the platform's content and contracts.
+
+See the [Platform Blueprint](docs/PLATFORM_BLUEPRINT.md) and [Fast Track Roadmap](docs/ROADMAP.md).
 
 ## Start Here
 
