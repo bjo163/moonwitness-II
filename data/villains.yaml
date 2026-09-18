@@ -1,0 +1,13 @@
+version: "0.1"
+
+villains:
+  - id: villain_001
+    title: "The Force Against the Story"
+    type: FORCE
+    related_event: event_001
+    disruption: "Something interrupts the clean version of the story."
+    temptation: "The easy explanation becomes attractive."
+    conflict: "Observation and interpretation begin to pull apart."
+    revelation: "The disruption makes a hidden fault line visible."
+    transformation: "The story must change after the exposure."
+    status: draft
