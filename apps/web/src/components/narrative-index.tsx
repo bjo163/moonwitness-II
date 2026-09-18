@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PlatformNav } from "@/components/platform-nav";
 
 export type NarrativeItem = {
   id: string;
@@ -24,6 +25,7 @@ export function NarrativeIndex({
 }: NarrativeIndexProps) {
   return (
     <main className="shell">
+      <PlatformNav />
       <section className="rail page-intro">
         <div className="eyebrow">{eyebrow}</div>
         <h1>{title}</h1>
