@@ -1,0 +1,22 @@
+version: "0.1"
+
+fault_lines:
+  - id: fault_001
+    title: "The First Fault Line"
+    type: TENSION
+    entity_a: char_the_shadow
+    entity_b: msg_001
+    trigger: "A signal creates pressure between what is seen and what is understood."
+    pressure: "The witness must decide what belongs to observation and what belongs to interpretation."
+    tension: "Known signal versus unknown meaning."
+    misalignment: "Message, memory, and present context do not fully align."
+    hidden: "The significance has not been exposed yet."
+    risk: "A story can be mistaken for certainty."
+    related_events:
+      - event_001
+    related_messages:
+      - msg_001
+    related_characters:
+      - char_the_shadow
+    related_era: era_00
+    status: draft
