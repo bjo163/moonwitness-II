@@ -27,6 +27,24 @@ relationships:
     type: alias
     status: draft
 
+  - id: rel_story_event
+    from: story_001
+    to: event_001
+    type: tells
+    status: draft
+
+  - id: rel_story_witness
+    from: story_001
+    to: witness_001
+    type: frames
+    status: draft
+
+  - id: rel_story_next_phase
+    from: story_001
+    to: era_07
+    type: opens
+    status: draft
+
   - id: rel_event_witness
     from: event_001
     to: witness_001
