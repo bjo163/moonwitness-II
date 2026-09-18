@@ -65,6 +65,7 @@
 - [x] Narrative support surfaces: Villains, Change Advisory Board, Chasing Heart, Lovestruck, Breath Electric, End Of An Era
 - [x] Motion layer with reduced-motion support
 - [x] Narrative transitions as linked entity steps
+- [x] Lightweight entity explorer/search
 - [ ] Interactive discovery polish
 - [ ] Full journey with richer real-world content
 
