@@ -4,7 +4,7 @@
 
 **Project Name:** MoonWitness
 
-**Project Type:** Storytelling Universe · Living Archive · Interactive Narrative Experience
+**Project Type:** Story & Witness Platform · Living Archive · Interactive Narrative Experience
 
 **Core Theme:** END OF AN ERA
 
@@ -12,7 +12,21 @@
 
 **Experience:** Cinematic · Electric · Mysterious · Emotional · Raw · Gen-Z · Grunge
 
-## 02 — MANIFESTO
+## 02 — PLATFORM POSITION
+
+> **MOONWITNESS = A STORY & WITNESS PLATFORM**
+
+The website is an interface to the platform, not the platform itself.
+
+The platform helps people:
+
+**CAPTURE → CONNECT → WITNESS → UNDERSTAND → PRESERVE → PROMOTE → MOVE FORWARD**
+
+The system stays lightweight: content graph first, infrastructure only when real usage requires it.
+
+See [PLATFORM_BLUEPRINT.md](PLATFORM_BLUEPRINT.md) for the platform boundary and MVP.
+
+## 03 — MANIFESTO
 
 > When The Moon Witness,  
 > We Share A Message.
@@ -36,7 +50,7 @@
 >
 > The Moon remains a witness.
 
-## 03 — CORE FUNCTIONS
+## 04 — CORE FUNCTIONS
 
 1. **Storytelling** — turn people, events, memories, fragments, and moments into stories.
 2. **Exposure** — make hidden signals and connections visible.
@@ -74,7 +88,7 @@ It means:
 
 > What deserves to continue?
 
-## 04 — CORE FLOW
+## 05 — CORE FLOW
 
 ```
 THE MOON
@@ -110,7 +124,7 @@ CHANGE
 NEXT ERA
 ```
 
-## 05 — THE CREW
+## 06 — THE CREW
 
 ### 00 — THE SHADOW
 
@@ -170,7 +184,7 @@ NEXT ERA
 
 **Alias:** Pirate of Carebean
 
-## 06 — NARRATIVE SYSTEMS
+## 07 — NARRATIVE SYSTEMS
 
 ### Witness
 
@@ -244,7 +258,7 @@ It tracks traces and influence that survive into the present.
 
 Promoting may apply to people, ideas, values, messages, memories, lessons, relationships, and stories.
 
-## 07 — ERAS
+## 08 — ERAS
 
 - ERA 00 — BEFORE LIGHT
 - ERA 01 — THE ARRIVAL
@@ -255,7 +269,7 @@ Promoting may apply to people, ideas, values, messages, memories, lessons, relat
 - ERA 06 — END OF AN ERA
 - ERA 07 — NEXT PHASE
 
-## 08 — RELATIONSHIP / CONSTELLATION
+## 09 — RELATIONSHIP / CONSTELLATION
 
 Core relationships:
 
@@ -263,7 +277,7 @@ Core relationships:
 
 Everything should be linkable without duplicating source data.
 
-## 09 — ARCHIVE LIFECYCLE
+## 10 — ARCHIVE LIFECYCLE
 
 ```
 UNSEEN
@@ -283,19 +297,19 @@ Additional states:
 
 **FORGOTTEN · REOPENED · PROMOTED**
 
-## 10 — CANON LEVELS
+## 11 — CANON LEVELS
 
 **CANON** — established within the universe.  
 **LORE** — belongs to the universe but may remain unresolved.  
 **INTERPRETATION** — theory, reading, observation, or perspective.
 
-## 11 — VISUAL LANGUAGE
+## 12 — VISUAL LANGUAGE
 
 Primary elements:
 
 **Lines · Moon · Shadow · Light · Glow · Blue Eyes · Red Fire · Electric Forest · Noise · Grain · Fragment · Signal · Motion · Fracture · Last Breath · Past Presence**
 
-## 12 — USER EXPERIENCE
+## 13 — USER EXPERIENCE
 
 The user is:
 
@@ -343,7 +357,7 @@ END OF AN ERA
 NEXT PHASE
 ```
 
-## 13 — WEBSITE
+## 14 — WEBSITE
 
 ```
 MOONWITNESS
@@ -368,7 +382,7 @@ MOONWITNESS
 └── END OF AN ERA
 ```
 
-## 14 — REPO PRINCIPLE
+## 15 — REPO PRINCIPLE
 
 Content first. Code second.
 
