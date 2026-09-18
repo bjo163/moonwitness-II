@@ -1,0 +1,13 @@
+version: "0.1"
+
+seductions:
+  - id: seduction_001
+    title: "The First Curiosity"
+    type: CURIOSITY
+    event: event_001
+    flow:
+      - ATTRACTION
+      - CURIOSITY
+      - TEMPTATION
+      - ATTACHMENT
+    status: draft
