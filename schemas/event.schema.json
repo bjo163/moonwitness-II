@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moonwitness/event.schema.json",
+  "title": "MoonWitness Event",
+  "type": "object",
+  "required": ["id", "title", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string", "minLength": 1 },
+    "era": { "type": ["string", "null"] },
+    "date": { "type": ["string", "null"] },
+    "location": { "type": ["string", "null"] },
+    "trigger": { "type": ["string", "null"] },
+    "what_happened": { "type": "string" },
+    "actors": { "type": "array", "items": { "type": "string" } },
+    "witnesses": { "type": "array", "items": { "type": "string" } },
+    "seduction": { "type": "array", "items": { "type": "string" } },
+    "fault_lines": { "type": "array", "items": { "type": "string" } },
+    "exposure": { "type": "array", "items": { "type": "string" } },
+    "past_presence": { "type": "array", "items": { "type": "string" } },
+    "conflict": { "type": "array", "items": { "type": "string" } },
+    "sanity_last_breath": { "type": "array", "items": { "type": "string" } },
+    "consequence": { "type": ["string", "null"] },
+    "source": { "type": ["string", "null"] },
+    "provenance": { "type": ["string", "null"] },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": true
+}
