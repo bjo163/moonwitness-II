@@ -58,9 +58,20 @@ The web app is an interface to the platform. The repository is the source of tru
 ├── /witness
 ├── /events
 ├── /messages
+├── /seduction
 ├── /fault-lines
 ├── /exposure
+├── /promoting
+├── /conflict
+├── /sanity-last-breath
 ├── /past-presence
+├── /change
+├── /change-advisory-board
+├── /chasing-heart
+├── /lovestruck
+├── /breath-electric
+├── /villains
+├── /end-of-an-era
 ├── /crew
 ├── /timeline
 ├── /constellation
@@ -76,7 +87,17 @@ messages
 seductions
 fault-lines
 exposures
+promoting
+conflicts
+sanity-last-breath
 past-presence
+changes
+change-advisory-board
+chasing-heart
+lovestruck
+breath-electric
+villains
+end-of-an-era
 changes
 eras
 characters
