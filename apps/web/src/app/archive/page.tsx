@@ -40,7 +40,11 @@ export default function ArchivePage() {
           <div className="grid">
             {items.map((entity) => (
               <Link className="card entity-card" href={"/entity/" + entity.id} key={entity.id}>
-                <div className="card-index">{entity.data.status ?? "unknown"}</div>
+                <div className="card-index">
+                  {"status" in entity.data && typeof entity.data.status === "string"
+                    ? entity.data.status
+                    : "unknown"}
+                </div>
                 <h3>{entity.title}</h3>
                 <p className="muted">{entity.id}</p>
               </Link>
