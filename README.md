@@ -59,6 +59,7 @@ The web app is an interface to the platform. The repository is the source of tru
 ├── /events
 ├── /messages
 ├── /fault-lines
+├── /exposure
 ├── /past-presence
 ├── /crew
 ├── /timeline
@@ -74,6 +75,7 @@ witnesses
 messages
 seductions
 fault-lines
+exposures
 past-presence
 changes
 eras
