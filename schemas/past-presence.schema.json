@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moonwitness/past-presence.schema.json",
+  "title": "MoonWitness Past Presence",
+  "type": "object",
+  "required": ["id", "title", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "origin": { "type": ["string", "null"] },
+    "past_event": { "type": ["string", "null"] },
+    "past_era": { "type": ["string", "null"] },
+    "trace": { "type": ["string", "null"] },
+    "what_remains": { "type": ["string", "null"] },
+    "where_present": { "type": ["string", "null"] },
+    "who_affected": { "type": "array", "items": { "type": "string" } },
+    "current_signal": { "type": ["string", "null"] },
+    "current_influence": { "type": ["string", "null"] },
+    "audit": { "type": ["string", "null"] },
+    "evaluation": { "type": ["string", "null"] },
+    "balancing": { "type": ["string", "null"] },
+    "promoting": { "type": ["string", "null"] },
+    "next_phase": { "type": ["string", "null"] },
+    "related_entities": { "type": "array", "items": { "type": "string" } },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": true
+}
