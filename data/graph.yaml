@@ -26,6 +26,10 @@ graph:
     - change_001
     - villain_001
     - cab_001
+    - chasing_heart_001
+    - lovestruck_001
+    - breath_electric_001
+    - end_era_001
 
   traversal:
     - "CHARACTER → EVENT"
@@ -45,3 +49,7 @@ graph:
     - "CHANGE → ERA"
     - "EVENT → VILLAIN (CONTEXTUAL)"
     - "EVENT → CHANGE ADVISORY BOARD"
+    - "EVENT → CHASING_HEART (EMOTIONAL)"
+    - "EVENT → LOVESTRUCK (EMOTIONAL)"
+    - "EVENT → BREATH_ELECTRIC (ATMOSPHERE)"
+    - "EVENT → END_OF_AN_ERA"
