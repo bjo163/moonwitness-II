@@ -1,0 +1,58 @@
+version: "0.1"
+
+relationships:
+  - id: rel_shadow_dreamer
+    from: char_the_shadow
+    to: char_the_shadow
+    type: alternate_identity
+    status: draft
+
+  - id: rel_shadow_runaway
+    from: char_the_shadow
+    to: char_dogs_from_universe
+    type: shared_runaway
+    context: "Narrative connection; refine when the universe expands."
+    status: draft
+
+  - id: rel_shadow_a_lah
+    from: char_the_shadow
+    to: char_a_lah
+    type: origin
+    context: "The Shadow is connected to the A LAH / Boss of the Boss origin statement."
+    status: draft
+
+  - id: rel_blue_witch_mansa
+    from: char_blue_witch
+    to: char_blue_witch
+    type: alias
+    status: draft
+
+  - id: rel_event_witness
+    from: event_001
+    to: witness_001
+    type: witnessed_by
+    status: draft
+
+  - id: rel_witness_message
+    from: witness_001
+    to: msg_001
+    type: produced_message
+    status: draft
+
+  - id: rel_event_fault
+    from: event_001
+    to: fault_001
+    type: fault_line
+    status: draft
+
+  - id: rel_event_past_presence
+    from: event_001
+    to: past_presence_001
+    type: past_presence
+    status: draft
+
+  - id: rel_past_presence_next_phase
+    from: past_presence_001
+    to: era_07
+    type: carries_forward
+    status: draft
