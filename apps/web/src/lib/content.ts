@@ -155,6 +155,13 @@ type Change = {
   [key: string]: unknown;
 };
 
+type NarrativeEntry = {
+  id: string;
+  title: string;
+  status: string;
+  [key: string]: unknown;
+};
+
 type Relationship = {
   id: string;
   from: string;
@@ -217,6 +224,18 @@ export const getPastPresences = () =>
 export const getChanges = () =>
   loadYaml<{ version: string; changes: Change[] }>("data/changes.yaml").changes;
 
+const getNarrativeEntries = (relativePath: string, key: string) =>
+  (loadYaml<{ version: string; [key: string]: NarrativeEntry[] }>(relativePath)[key] ?? []);
+
+export const getPromoting = () => getNarrativeEntries("data/promoting.yaml", "promoting");
+export const getVillains = () => getNarrativeEntries("data/villains.yaml", "villains");
+export const getSanityLastBreath = () => getNarrativeEntries("data/sanity-last-breath.yaml", "sanity_last_breath");
+export const getChangeAdvisoryBoard = () => getNarrativeEntries("data/change-advisory-board.yaml", "change_advisory_board");
+export const getChasingHeart = () => getNarrativeEntries("data/chasing-heart.yaml", "chasing_heart");
+export const getLovestruck = () => getNarrativeEntries("data/lovestruck.yaml", "lovestruck");
+export const getBreathElectric = () => getNarrativeEntries("data/breath-electric.yaml", "breath_electric");
+export const getEndOfAnEra = () => getNarrativeEntries("data/end-of-an-era.yaml", "end_of_an_era");
+
 export const getRelationships = () =>
   loadYaml<{ version: string; relationships: Relationship[] }>("data/relationships.yaml").relationships;
 
@@ -264,6 +283,14 @@ export const getEntity = (id: string) => {
     ["FAULT_LINE", getFaultLines()],
     ["PAST_PRESENCE", getPastPresences()],
     ["CHANGE", getChanges()],
+    ["PROMOTING", getPromoting()],
+    ["VILLAIN", getVillains()],
+    ["SANITY_LAST_BREATH", getSanityLastBreath()],
+    ["CHANGE_ADVISORY_BOARD", getChangeAdvisoryBoard()],
+    ["CHASING_HEART", getChasingHeart()],
+    ["LOVESTRUCK", getLovestruck()],
+    ["BREATH_ELECTRIC", getBreathElectric()],
+    ["END_OF_AN_ERA", getEndOfAnEra()],
   ];
 
   for (const [type, items] of collections) {
