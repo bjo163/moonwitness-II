@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { PlatformNav } from "@/components/platform-nav";
 import { getEntity, getGraph, getRelationships } from "@/lib/content";
@@ -12,7 +13,7 @@ const hiddenFields = new Set(["id", "status"]);
 const formatLabel = (key: string) =>
   key.replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
 
-const renderValue = (value: unknown, knownIds: Set<string>): React.ReactNode => {
+const renderValue = (value: unknown, knownIds: Set<string>): ReactNode => {
   if (value === null || value === undefined || value === "") {
     return <span className="muted">UNKNOWN</span>;
   }
