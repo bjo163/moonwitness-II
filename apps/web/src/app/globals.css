@@ -755,3 +755,44 @@ blockquote {
     gap: 8px;
   }
 }
+
+
+.explore-form {
+  display: flex;
+  gap: 8px;
+  max-width: 760px;
+  margin-top: 32px;
+}
+
+.explore-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  outline: none;
+  background: rgba(255,255,255,.02);
+  color: var(--text);
+  font: inherit;
+}
+
+.explore-form input:focus {
+  border-color: var(--accent);
+}
+
+.explore-form button {
+  padding: 14px 16px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: .13em;
+}
+
+.explore-form button:hover {
+  background: rgba(169,255,234,.06);
+}
+
+@media (max-width: 560px) {
+  .explore-form { flex-direction: column; }
+}
