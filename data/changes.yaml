@@ -1,0 +1,7 @@
+version: "0.1"
+
+changes:
+  - id: change_001
+    event: event_001
+    next_phase: era_07
+    status: draft
