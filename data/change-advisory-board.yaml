@@ -1,0 +1,18 @@
+version: "0.1"
+
+change_advisory_board:
+  - id: cab_001
+    title: "Change Advisory Board — First Review"
+    event: event_001
+    current_state: "The signal has been witnessed and connected."
+    pressure_points:
+      - fault_001
+    evidence:
+      - witness_001
+      - exposure_001
+    questions:
+      - "What actually changed?"
+      - "What should remain unresolved?"
+      - "What belongs in the next phase?"
+    next_phase: era_07
+    status: draft
