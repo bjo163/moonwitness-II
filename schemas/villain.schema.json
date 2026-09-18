@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moonwitness/villain.schema.json",
+  "title": "MoonWitness Villain of the Story",
+  "type": "object",
+  "required": ["id", "title", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string", "minLength": 1 },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": true
+}
