@@ -1,0 +1,26 @@
+version: "0.1"
+
+past_presences:
+  - id: past_presence_001
+    title: "The First Echo"
+    origin: event_001
+    past_event: event_001
+    past_era: era_00
+    trace: "A trace from the past remains in the present."
+    what_remains: "A trace from the past remains in the present."
+    where_present: "In the witness graph, the message, the memory, and the connections it creates."
+    who_affected:
+      - char_the_shadow
+    current_signal: "The original witness signal is still readable."
+    current_influence: "It frames how the next phase is discovered."
+    audit: "What is actually here?"
+    evaluation: "What matters?"
+    balancing: "What should be kept, changed, reduced, restored, or released?"
+    promoting: "What deserves to continue?"
+    next_phase: era_07
+    related_entities:
+      - event_001
+      - witness_001
+      - msg_001
+      - fault_001
+    status: draft
