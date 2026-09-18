@@ -44,6 +44,26 @@ const kindFor = (id: string) => {
 export function ConstellationExplorer({ nodes, relationships }: Props) {
   const [selected, setSelected] = useState(nodes[0] ?? "");
 
+  const positions = useMemo(() => {
+    const map = new Map<string, { x: number; y: number }>();
+    const ring = nodes.filter((node) => node !== selected);
+    const radius = 36;
+
+    if (selected) {
+      map.set(selected, { x: 50, y: 50 });
+    }
+
+    ring.forEach((node, index) => {
+      const angle = (index / Math.max(ring.length, 1)) * Math.PI * 2 - Math.PI / 2;
+      map.set(node, {
+        x: 50 + Math.cos(angle) * radius,
+        y: 50 + Math.sin(angle) * radius
+      });
+    });
+
+    return map;
+  }, [nodes, selected]);
+
   const related = useMemo(
     () =>
       relationships.filter(
@@ -61,18 +81,6 @@ export function ConstellationExplorer({ nodes, relationships }: Props) {
     return values;
   }, [related, selected]);
 
-  const visibleNodes = nodes.filter((node) => connected.has(node));
-  const layout = visibleNodes.map((node, index) => {
-    if (node === selected) return { node, x: 50, y: 50 };
-    const angle = (index / Math.max(visibleNodes.length - 1, 1)) * Math.PI * 2;
-    const radius = 35;
-    return {
-      node,
-      x: 50 + Math.cos(angle) * radius,
-      y: 50 + Math.sin(angle) * radius
-    };
-  });
-
   return (
     <div className="constellation-wrap">
       <div className="constellation-stage" aria-label="Interactive MoonWitness constellation">
@@ -80,22 +88,40 @@ export function ConstellationExplorer({ nodes, relationships }: Props) {
         <div className="constellation-orbit orbit-two" />
         <div className="constellation-moon">◌</div>
 
-        {related.map((relationship) => (
-          <div
-            className="constellation-edge"
-            key={relationship.id}
-            data-active="true"
-            style={{
-              transform: "translate(-50%, -50%)"
-            }}
-          />
-        ))}
+        <svg
+          className="constellation-svg"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          {relationships.map((relationship) => {
+            const from = positions.get(relationship.from);
+            const to = positions.get(relationship.to);
+            if (!from || !to) return null;
+            const active = connected.has(relationship.from) && connected.has(relationship.to);
 
-        {layout.map(({ node, x, y }) => (
+            return (
+              <line
+                key={relationship.id}
+                x1={from.x}
+                y1={from.y}
+                x2={to.x}
+                y2={to.y}
+                className={active ? "constellation-edge active" : "constellation-edge"}
+              />
+            );
+          })}
+        </svg>
+
+        {Array.from(positions.entries()).map(([node, point]) => (
           <button
-            className={`constellation-node ${node === selected ? "is-selected" : ""}`}
+            className={[
+              "constellation-node",
+              node === selected ? "is-selected" : "",
+              connected.has(node) ? "is-connected" : "is-dimmed"
+            ].join(" ")}
             key={node}
-            style={{ left: `${x}%`, top: `${y}%` }}
+            style={{ left: `${point.x}%`, top: `${point.y}%` }}
             onClick={() => setSelected(node)}
             type="button"
           >
@@ -118,23 +144,22 @@ export function ConstellationExplorer({ nodes, relationships }: Props) {
         </p>
 
         <div className="relationship-list">
-          {related.map((relationship) => (
-            <button
-              type="button"
-              className="relationship-row"
-              key={relationship.id}
-              onClick={() =>
-                setSelected(
-                  relationship.from === selected ? relationship.to : relationship.from
-                )
-              }
-            >
-              <span>{relationship.type}</span>
-              <strong>
-                {labelFor(relationship.from === selected ? relationship.to : relationship.from)}
-              </strong>
-            </button>
-          ))}
+          {related.map((relationship) => {
+            const target =
+              relationship.from === selected ? relationship.to : relationship.from;
+
+            return (
+              <button
+                type="button"
+                className="relationship-row"
+                key={relationship.id}
+                onClick={() => setSelected(target)}
+              >
+                <span>{relationship.type}</span>
+                <strong>{labelFor(target)}</strong>
+              </button>
+            );
+          })}
         </div>
 
         {!related.length ? (
