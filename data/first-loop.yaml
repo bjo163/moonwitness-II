@@ -6,6 +6,7 @@ witness: witness_001
 message: msg_001
 seduction: seduction_001
 fault_line: fault_001
+exposure: exposure_001
 past_presence: past_presence_001
 
 transition:
