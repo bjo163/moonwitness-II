@@ -56,6 +56,7 @@ The web app is an interface to the platform. The repository is the source of tru
 /
 ├── /storytelling
 ├── /explore
+├── /archive
 ├── /journey
 ├── /witness
 ├── /events
