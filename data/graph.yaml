@@ -18,6 +18,7 @@ graph:
     - msg_001
     - seduction_001
     - fault_001
+    - exposure_001
     - past_presence_001
     - change_001
 
@@ -27,7 +28,8 @@ graph:
     - "WITNESS → MESSAGE"
     - "EVENT → SEDUCTION"
     - "EVENT → FAULT_LINE"
-    - "EVENT → PAST_PRESENCE"
+    - "FAULT_LINE → EXPOSURE"
+    - "EXPOSURE → PAST_PRESENCE"
     - "PAST_PRESENCE → AUDIT"
     - "AUDIT → EVALUATION"
     - "EVALUATION → BALANCING"
