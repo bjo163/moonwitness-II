@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moonwitness/fault-line.schema.json",
+  "title": "MoonWitness Fault Line",
+  "type": "object",
+  "required": ["id", "title", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "type": { "type": ["string", "null"] },
+    "entity_a": { "type": ["string", "null"] },
+    "entity_b": { "type": ["string", "null"] },
+    "trigger": { "type": ["string", "null"] },
+    "pressure": { "type": ["string", "null"] },
+    "tension": { "type": ["string", "null"] },
+    "misalignment": { "type": ["string", "null"] },
+    "hidden": { "type": ["string", "null"] },
+    "risk": { "type": ["string", "null"] },
+    "related_events": { "type": "array", "items": { "type": "string" } },
+    "related_messages": { "type": "array", "items": { "type": "string" } },
+    "related_characters": { "type": "array", "items": { "type": "string" } },
+    "related_era": { "type": ["string", "null"] },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": true
+}
