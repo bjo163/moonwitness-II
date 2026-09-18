@@ -82,6 +82,19 @@ type Message = {
   [key: string]: unknown;
 };
 
+type Exposure = {
+  id: string;
+  title: string;
+  event: string;
+  witness?: string | null;
+  message?: string | null;
+  fault_line?: string | null;
+  what_is_exposed?: string | null;
+  what_remains_unknown?: string | null;
+  status: string;
+  [key: string]: unknown;
+};
+
 type Seduction = {
   id: string;
   title: string;
@@ -188,6 +201,9 @@ export const getWitnesses = () =>
 export const getMessages = () =>
   loadYaml<{ version: string; messages: Message[] }>("data/messages.yaml").messages;
 
+export const getExposures = () =>
+  loadYaml<{ version: string; exposures: Exposure[] }>("data/exposures.yaml").exposures;
+
 export const getSeductionEntries = () =>
   loadYaml<{ version: string; seductions: Seduction[] }>("data/seductions.yaml").seductions;
 
@@ -240,6 +256,7 @@ export const getEntity = (id: string) => {
     ["EVENT", getEvents()],
     ["WITNESS", getWitnesses()],
     ["MESSAGE", getMessages()],
+    ["EXPOSURE", getExposures()],
     ["SEDUCTION", getSeductionEntries()],
     ["FAULT_LINE", getFaultLines()],
     ["PAST_PRESENCE", getPastPresences()],
