@@ -2,12 +2,12 @@ version: "0.1"
 
 past_presences:
   - id: past_presence_001
-    title: "The First Echo"
+    title: "THE FIRST ECHO"
     origin: event_001
     past_event: event_001
     past_era: era_00
     trace: "A trace from the past remains in the present."
-    what_remains: "A trace from the past remains in the present."
+    what_remains: "A remembered signal, its message, and the relationships created around it."
     where_present: "In the witness graph, the message, the memory, and the connections it creates."
     who_affected:
       - char_the_shadow
@@ -23,4 +23,8 @@ past_presences:
       - witness_001
       - msg_001
       - fault_001
-    status: draft
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness past presence system"
+    visibility: public
+    status: review
