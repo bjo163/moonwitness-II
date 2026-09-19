@@ -1,4 +1,5 @@
 version: "0.1"
+
 characters:
   - id: char_the_shadow
     type: character
@@ -18,12 +19,18 @@ characters:
       - "Dancer"
       - "The Exposer"
     birth: "Sebelum Ada Cahaya"
+    description: "A shadow-shaped observer moving between being remembered and being deliberately forgotten."
     skills:
       - "TOO GOOD"
     tags:
       - "runaway"
       - "dreamer"
       - "exposer"
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness creative bible"
+    visibility: public
+    status: review
 
   - id: char_a_lah
     type: character
@@ -34,6 +41,12 @@ characters:
       - "LiAlH₄"
     nickname: "THE BATTERY"
     witness_phrase: "Lesgo. JUST DO IT!!!"
+    description: "The boss figure in the MoonWitness mythos: a source of command, energy, and movement."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness creative bible"
+    visibility: public
+    status: review
 
   - id: char_dogs_from_universe
     type: character
@@ -53,6 +66,12 @@ characters:
       - "ACTOR"
       - "EMBALAP"
     ultimate_skill: "WOE IS ME"
+    description: "A cosmic crew presence built from stars, disappearance, memory tricks, movement, and impossible returns."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness creative bible"
+    visibility: public
+    status: review
 
   - id: char_blue_witch
     type: character
@@ -61,24 +80,48 @@ characters:
       - "MANSA MUSA"
       - "BLUE EYES"
     witness_phrase: "Lambreta!!"
+    description: "The blue-eyed witch: a visual and symbolic presence associated with mystery, velocity, and spectacle."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness creative bible"
+    visibility: public
+    status: review
 
   - id: char_dj_david
     type: character
     name: "DJ DAVID"
     aliases:
       - "David"
+    description: "A musical presence inside the crew constellation."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness creative bible"
+    visibility: public
+    status: review
 
   - id: char_walter_white
     type: character
     name: "WALTER WHITE"
     skills:
       - "DOKTER BEDAH"
+    description: "A narrative reference representing precision, transformation, and high-stakes craft."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness creative bible"
+    visibility: public
+    status: review
 
   - id: char_electric_forest
     type: character
     name: "ELECTRIC FOREST"
     aliases:
       - "Cassade Pope"
+    description: "An electric landscape-persona: sound, atmosphere, memory, and movement."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness creative bible"
+    visibility: public
+    status: review
 
   - id: char_indestructible
     type: character
@@ -86,9 +129,21 @@ characters:
     aliases:
       - "THE FATHER"
       - "THE RED FIRE"
+    description: "A durable father-force in the mythos, expressed through red fire and persistence."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness creative bible"
+    visibility: public
+    status: review
 
   - id: char_jhnny_depp
     type: character
     name: "JHNNY DEPP"
     aliases:
       - "Pirate of Carebean"
+    description: "A pirate-coded character reference for escape, performance, mischief, and care."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness creative bible"
+    visibility: public
+    status: review
