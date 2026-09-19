@@ -24,3 +24,78 @@ messages:
     canon_level: lore
     visibility: public
     status: review
+
+  - id: msg_002
+    title: "THE ARRIVAL MESSAGE"
+    from: THE_MOON
+    to: THE_OBSERVER
+    era: era_01
+    type: ARRIVAL
+    witnesses:
+      - witness_002
+    context: "The message attached to the arrival."
+    message: "Something has entered the field."
+    signal: "Presence becomes visible."
+    related_event: event_002
+    related_people:
+      - char_blue_witch
+      - char_dj_david
+    related_fault_lines:
+      - fault_002
+    related_past_presence:
+      - past_presence_002
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    canon_level: lore
+    visibility: public
+    status: review
+
+  - id: msg_003
+    title: "THE RUNAWAY MESSAGE"
+    from: char_the_shadow
+    to: THE_OBSERVER
+    era: era_03
+    type: TRACE
+    witnesses:
+      - witness_003
+    context: "A message carried by the runaway trace."
+    message: "The name may change. The trace does not have to disappear."
+    signal: "Memory leaves evidence of movement."
+    related_event: event_003
+    related_people:
+      - char_the_shadow
+      - char_dogs_from_universe
+    related_fault_lines:
+      - fault_003
+    related_past_presence:
+      - past_presence_003
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    canon_level: lore
+    visibility: public
+    status: review
+
+  - id: msg_004
+    title: "THE EXPOSURE MESSAGE"
+    from: THE_MOON
+    to: THE_OBSERVER
+    era: era_04
+    type: EXPOSURE
+    witnesses:
+      - witness_004
+    context: "A message accompanying the first visible exposure."
+    message: "What can be shown is not the same as what it means."
+    signal: "Visibility increases while interpretation remains open."
+    related_event: event_004
+    related_people:
+      - char_the_shadow
+      - char_indestructible
+    related_fault_lines:
+      - fault_004
+    related_past_presence:
+      - past_presence_004
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    canon_level: lore
+    visibility: public
+    status: review
