@@ -28,3 +28,78 @@ past_presences:
     provenance: "MoonWitness past presence system"
     visibility: public
     status: review
+
+  - id: past_presence_002
+    title: "THE ARRIVAL ECHO"
+    origin: event_002
+    past_event: event_002
+    past_era: era_01
+    trace: "The arrival remains as a changed pattern of attention."
+    what_remains: "A memory of presence, movement, and the first decision to follow."
+    where_present: "In witness_002, msg_002, and the relationships around event_002."
+    who_affected:
+      - char_blue_witch
+      - char_dj_david
+    current_signal: "The arrival still changes how the observer reads the graph."
+    current_influence: "Presence can become a path."
+    next_phase: era_02
+    related_entities:
+      - event_002
+      - witness_002
+      - msg_002
+      - fault_002
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: past_presence_003
+    title: "THE RUNAWAY ECHO"
+    origin: event_003
+    past_event: event_003
+    past_era: era_03
+    trace: "The trace survives even when names and roles shift."
+    what_remains: "Memory of movement, aliases, and the refusal of the trace to disappear."
+    where_present: "In the identity links and the witness record."
+    who_affected:
+      - char_the_shadow
+      - char_dogs_from_universe
+    current_signal: "The runaway pattern remains discoverable."
+    current_influence: "Past identity can shape present attention without becoming a fixed fact."
+    next_phase: era_04
+    related_entities:
+      - event_003
+      - witness_003
+      - msg_003
+      - fault_003
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: past_presence_004
+    title: "THE EXPOSURE ECHO"
+    origin: event_004
+    past_event: event_004
+    past_era: era_04
+    trace: "What became visible continues to influence what happens next."
+    what_remains: "The exposed relationship between signal, witness, message, and pressure."
+    where_present: "In the graph, the fault line, and the next-phase decision."
+    who_affected:
+      - char_the_shadow
+      - char_indestructible
+    current_signal: "The visible fault remains part of the record."
+    current_influence: "Visibility changes the available paths forward."
+    next_phase: era_05
+    related_entities:
+      - event_004
+      - witness_004
+      - msg_004
+      - fault_004
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
