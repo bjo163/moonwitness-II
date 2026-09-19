@@ -297,6 +297,54 @@ export const getEntitySummaries = (): EntitySummary[] => {
     .filter((summary): summary is EntitySummary => Boolean(summary));
 };
 
+export type NarrativeTrace = {
+  event: EntitySummary | null;
+  witness: EntitySummary | null;
+  message: EntitySummary | null;
+  seduction: EntitySummary | null;
+  faultLine: EntitySummary | null;
+  exposure: EntitySummary | null;
+  pastPresence: EntitySummary | null;
+  change: EntitySummary | null;
+};
+
+const summaryMap = () => new Map(getEntitySummaries().map((summary) => [summary.id, summary]));
+
+export const getEventTrace = (eventId: string): NarrativeTrace | null => {
+  const event = getEvents().find((item) => item.id === eventId);
+  if (!event) return null;
+
+  const summaries = summaryMap();
+  const first = <T,>(values: T[] | undefined) => values?.[0] ?? null;
+  const resolve = (id: unknown) =>
+    typeof id === "string" ? summaries.get(id) ?? null : null;
+
+  return {
+    event: summaries.get(event.id) ?? null,
+    witness: resolve(first(event.witnesses)),
+    message: resolve(first(event.witnesses)?.message),
+    seduction: resolve(first(event.seduction)),
+    faultLine: resolve(first(event.fault_lines)),
+    exposure: resolve(first(event.exposure)),
+    pastPresence: resolve(first(event.past_presence)),
+    change: resolve(first(event.actors) ? getChanges().find((item) => item.event === event.id)?.id : null)
+  };
+};
+
+export const getStoryTraces = (storyId: string): NarrativeTrace[] => {
+  const story = getStories().find((item) => item.id === storyId);
+  if (!story) return [];
+
+  const eventIds = [
+    typeof story.related_event === "string" ? story.related_event : null,
+    ...(Array.isArray(story.next_event) ? story.next_event.map((value) => String(value)) : [])
+  ].filter((id, index, values): id is string => Boolean(id) && values.indexOf(id) === index);
+
+  return eventIds
+    .map((eventId) => getEventTrace(eventId))
+    .filter((trace): trace is NarrativeTrace => Boolean(trace));
+};
+
 export const getFirstLoop = () => {
   const manifest = loadYaml<FirstLoopManifest>("data/first-loop.yaml");
   const event = getEvents().find((item) => item.id === manifest.event);
