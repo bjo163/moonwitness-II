@@ -24,3 +24,78 @@ fault_lines:
     provenance: "MoonWitness narrative system"
     visibility: public
     status: review
+
+  - id: fault_002
+    title: "THE ARRIVAL FAULT"
+    type: PRESSURE
+    entity_a: char_blue_witch
+    entity_b: msg_002
+    trigger: "New presence changes the field."
+    pressure: "Attention shifts faster than understanding."
+    tension: "Presence versus explanation."
+    misalignment: "The observer knows something arrived, but not what it will change."
+    hidden: "The destination of the arrival."
+    risk: "Falling in love with an interpretation before the evidence matures."
+    related_events:
+      - event_002
+    related_messages:
+      - msg_002
+    related_characters:
+      - char_blue_witch
+      - char_dj_david
+    related_era: era_01
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: fault_003
+    title: "THE RUNAWAY FAULT"
+    type: IDENTITY
+    entity_a: char_the_shadow
+    entity_b: char_dogs_from_universe
+    trigger: "Names and identities stop behaving like fixed points."
+    pressure: "Memory keeps moving."
+    tension: "Identity versus trace."
+    misalignment: "Different names can point toward overlapping narrative roles."
+    hidden: "Which parts belong to memory, role, alias, or event."
+    risk: "Treating an alias or narrative role as a proven identity."
+    related_events:
+      - event_003
+    related_messages:
+      - msg_003
+    related_characters:
+      - char_the_shadow
+      - char_dogs_from_universe
+    related_era: era_03
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: fault_004
+    title: "THE EXPOSURE FAULT"
+    type: EXPOSURE
+    entity_a: char_the_shadow
+    entity_b: msg_004
+    trigger: "Hidden pressure becomes visible."
+    pressure: "Visibility creates consequences."
+    tension: "Exposure versus interpretation."
+    misalignment: "More evidence does not automatically produce one meaning."
+    hidden: "The next change remains open."
+    risk: "Confusing visibility with certainty."
+    related_events:
+      - event_004
+    related_messages:
+      - msg_004
+    related_characters:
+      - char_the_shadow
+      - char_indestructible
+    related_era: era_04
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
