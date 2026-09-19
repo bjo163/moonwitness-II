@@ -24,3 +24,78 @@ events:
       - past_presence_001
     consequence: "The signal becomes the first trace in the MoonWitness graph."
     visibility: public
+
+  - id: event_002
+    title: "THE ARRIVAL"
+    era: era_01
+    status: review
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    trigger: "Presence enters the field and changes what the observer notices."
+    what_happened: "Something arrives. The universe gains a visible presence, and the signal becomes a path rather than a single moment."
+    actors:
+      - char_blue_witch
+      - char_dj_david
+    witnesses:
+      - witness_002
+    seduction:
+      - seduction_002
+    fault_lines:
+      - fault_002
+    exposure:
+      - exposure_002
+    past_presence:
+      - past_presence_002
+    consequence: "The witness begins to follow instead of only recording."
+    visibility: public
+
+  - id: event_003
+    title: "THE RUNAWAY TRACE"
+    era: era_03
+    status: review
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    trigger: "An identity changes shape while the trace remains."
+    what_happened: "The runaway pattern appears: names shift, memory bends, and the trace refuses to disappear."
+    actors:
+      - char_the_shadow
+      - char_dogs_from_universe
+    witnesses:
+      - witness_003
+    seduction:
+      - seduction_003
+    fault_lines:
+      - fault_003
+    exposure:
+      - exposure_003
+    past_presence:
+      - past_presence_003
+    consequence: "Identity becomes a question the graph can hold without forcing one answer."
+    visibility: public
+
+  - id: event_004
+    title: "THE EXPOSURE"
+    era: era_04
+    status: review
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    trigger: "The hidden pressure reaches a point where it can be shown."
+    what_happened: "The signal, its witness, and its fault line become visible together. Exposure reveals the shape of the question without deciding its meaning."
+    actors:
+      - char_the_shadow
+      - char_indestructible
+    witnesses:
+      - witness_004
+    seduction:
+      - seduction_004
+    fault_lines:
+      - fault_004
+    exposure:
+      - exposure_004
+    past_presence:
+      - past_presence_004
+    consequence: "The story crosses from hidden trace into visible change."
+    visibility: public
