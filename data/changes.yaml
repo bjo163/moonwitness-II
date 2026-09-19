@@ -11,3 +11,36 @@ changes:
     provenance: "MoonWitness change system"
     visibility: public
     status: review
+
+  - id: change_002
+    title: "THE ARRIVAL SHIFT"
+    event: event_002
+    next_phase: era_02
+    movement: "Presence becomes a path. The observer moves from noticing to following."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: change_003
+    title: "THE RUNAWAY SHIFT"
+    event: event_003
+    next_phase: era_04
+    movement: "Identity becomes a graph of roles, traces, and questions rather than a single locked label."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: change_004
+    title: "THE EXPOSURE SHIFT"
+    event: event_004
+    next_phase: era_05
+    movement: "What can be shown becomes part of the record, while meaning remains open to refinement."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
