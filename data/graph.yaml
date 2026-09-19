@@ -3,6 +3,7 @@ version: "0.1"
 graph:
   nodes:
     - story_001
+    - story_002
     - char_the_shadow
     - char_a_lah
     - char_dogs_from_universe
@@ -13,6 +14,12 @@ graph:
     - char_indestructible
     - char_jhnny_depp
     - era_00
+    - era_01
+    - era_02
+    - era_03
+    - era_04
+    - era_05
+    - era_06
     - era_07
     - event_001
     - event_002
