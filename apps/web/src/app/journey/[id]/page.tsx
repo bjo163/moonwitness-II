@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PlatformNav } from "@/components/platform-nav";
-import { getEntity, getStories } from "@/lib/content";
+import { getEntity, getRelationships, getStories } from "@/lib/content";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -22,6 +22,16 @@ export default async function StoryJourneyPage({ params }: PageProps) {
   const data = entity.data as Record<string, unknown>;
   const movement = Array.isArray(data.movement) ? data.movement : [];
   const nextEvents = Array.isArray(data.next_event) ? data.next_event : [];
+  const nextEventEntities = nextEvents
+    .map((eventId) => getEntity(String(eventId)))
+    .filter((item): item is NonNullable<ReturnType<typeof getEntity>> => Boolean(item));
+  const traceLinks = getRelationships()
+    .filter((relationship) => relationship.from === id || relationship.to === id)
+    .map((relationship) => {
+      const targetId = relationship.from === id ? relationship.to : relationship.from;
+      return { relationship, target: getEntity(targetId) };
+    })
+    .filter((item): item is { relationship: ReturnType<typeof getRelationships>[number]; target: NonNullable<ReturnType<typeof getEntity>> } => Boolean(item.target));
 
   return (
     <main className="shell">
