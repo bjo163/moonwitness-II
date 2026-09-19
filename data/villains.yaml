@@ -2,7 +2,7 @@ version: "0.1"
 
 villains:
   - id: villain_001
-    title: "The Force Against the Story"
+    title: "THE FORCE AGAINST THE STORY"
     type: FORCE
     related_event: event_001
     disruption: "Something interrupts the clean version of the story."
@@ -10,4 +10,9 @@ villains:
     conflict: "Observation and interpretation begin to pull apart."
     revelation: "The disruption makes a hidden fault line visible."
     transformation: "The story must change after the exposure."
-    status: draft
+    note: "A contextual narrative force, not automatically a specific person."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness narrative system"
+    visibility: public
+    status: review
