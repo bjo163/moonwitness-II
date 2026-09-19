@@ -2,6 +2,7 @@ version: "0.1"
 
 changes:
   - id: change_001
+    title: "THE FIRST CHANGE"
     event: event_001
     next_phase: era_07
     movement: "The old frame ends; the witness, memory, trace, and selected meaning continue into the next phase."
