@@ -2,11 +2,16 @@ version: "0.1"
 
 promoting:
   - id: promoting_001
-    title: "What Deserves to Continue?"
+    title: "WHAT DESERVES TO CONTINUE?"
     source_past_presence: past_presence_001
     audit: "What is actually here?"
     evaluation: "What matters?"
     balancing: "What should be kept, changed, reduced, restored, or released?"
     decision: "What deserves to continue?"
     next_phase: era_07
-    status: draft
+    principle: "Promoting carries forward what survives honest observation and balancing."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness transition system"
+    visibility: public
+    status: review
