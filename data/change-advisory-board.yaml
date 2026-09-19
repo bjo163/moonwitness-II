@@ -2,9 +2,9 @@ version: "0.1"
 
 change_advisory_board:
   - id: cab_001
-    title: "Change Advisory Board — First Review"
+    title: "CHANGE ADVISORY BOARD — FIRST REVIEW"
     event: event_001
-    current_state: "The signal has been witnessed and connected."
+    current_state: "The signal has been witnessed, connected, exposed, and carried into review."
     pressure_points:
       - fault_001
     evidence:
@@ -14,5 +14,10 @@ change_advisory_board:
       - "What actually changed?"
       - "What should remain unresolved?"
       - "What belongs in the next phase?"
+    recommendation_mode: "Observe, compare, document, then decide what can move forward."
     next_phase: era_07
-    status: draft
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness change advisory system"
+    visibility: public
+    status: review
