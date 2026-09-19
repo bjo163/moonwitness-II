@@ -98,7 +98,16 @@ NODE
   ↓
 RELATED NODE
   ↓
+FOLLOW TRACE
+  ↓
 CONSTELLATION / ARCHIVE
+
+Constellation interaction:
+- select a node
+- read relationship direction/context
+- follow a connected target
+- open the target entity
+- reset to the root trace
 ```
 
 The Observer can enter from a story, from a search, or from the archive. There is no required single starting point.
