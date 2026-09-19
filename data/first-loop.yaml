@@ -8,6 +8,11 @@ seduction: seduction_001
 fault_line: fault_001
 exposure: exposure_001
 past_presence: past_presence_001
+promoting: promoting_001
+conflict: conflict_001
+sanity_last_breath: sanity_last_breath_001
+villain: villain_001
+change_advisory_board: cab_001
 
 transition:
   audit: "What is actually here?"
