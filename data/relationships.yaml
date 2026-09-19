@@ -45,6 +45,132 @@ relationships:
     type: opens
     status: draft
 
+  - id: rel_event2_witness
+    from: event_002
+    to: witness_002
+    type: witnessed_by
+    status: draft
+
+  - id: rel_event3_witness
+    from: event_003
+    to: witness_003
+    type: witnessed_by
+    status: draft
+
+  - id: rel_event4_witness
+    from: event_004
+    to: witness_004
+    type: witnessed_by
+    status: draft
+
+  - id: rel_event2_seduction
+    from: event_002
+    to: seduction_002
+    type: seduction
+    status: draft
+
+  - id: rel_event3_seduction
+    from: event_003
+    to: seduction_003
+    type: seduction
+    status: draft
+
+  - id: rel_event4_seduction
+    from: event_004
+    to: seduction_004
+    type: seduction
+    status: draft
+
+  - id: rel_event2_fault
+    from: event_002
+    to: fault_002
+    type: fault_line
+    status: draft
+
+  - id: rel_event3_fault
+    from: event_003
+    to: fault_003
+    type: fault_line
+    status: draft
+
+  - id: rel_event4_fault
+    from: event_004
+    to: fault_004
+    type: fault_line
+    status: draft
+
+  - id: rel_event2_exposure
+    from: event_002
+    to: exposure_002
+    type: exposure
+    status: draft
+
+  - id: rel_event3_exposure
+    from: event_003
+    to: exposure_003
+    type: exposure
+    status: draft
+
+  - id: rel_event4_exposure
+    from: event_004
+    to: exposure_004
+    type: exposure
+    status: draft
+
+  - id: rel_event2_past_presence
+    from: event_002
+    to: past_presence_002
+    type: past_presence
+    status: draft
+
+  - id: rel_event3_past_presence
+    from: event_003
+    to: past_presence_003
+    type: past_presence
+    status: draft
+
+  - id: rel_event4_past_presence
+    from: event_004
+    to: past_presence_004
+    type: past_presence
+    status: draft
+
+  - id: rel_event2_message
+    from: witness_002
+    to: msg_002
+    type: produced_message
+    status: draft
+
+  - id: rel_event3_message
+    from: witness_003
+    to: msg_003
+    type: produced_message
+    status: draft
+
+  - id: rel_event4_message
+    from: witness_004
+    to: msg_004
+    type: produced_message
+    status: draft
+
+  - id: rel_past2_change
+    from: past_presence_002
+    to: change_002
+    type: transitions
+    status: draft
+
+  - id: rel_past3_change
+    from: past_presence_003
+    to: change_003
+    type: transitions
+    status: draft
+
+  - id: rel_past4_change
+    from: past_presence_004
+    to: change_004
+    type: transitions
+    status: draft
+
   - id: rel_event_witness
     from: event_001
     to: witness_001
