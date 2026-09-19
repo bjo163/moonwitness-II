@@ -2,11 +2,15 @@ version: "0.1"
 
 end_of_an_era:
   - id: end_era_001
-    title: "End Of An Era"
+    title: "END OF AN ERA"
     event: event_001
     closing_signal: "The old frame can no longer contain the full story."
     what_ends: "The current narrative frame."
-    what_remains: "Witness, memory, trace, and what deserves to continue."
+    what_remains: "Witness, memory, trace, relationship, and what deserves to continue."
     what_opens: "A next phase."
     next_phase: era_07
-    status: draft
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
+    visibility: public
+    status: review
