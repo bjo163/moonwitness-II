@@ -54,18 +54,51 @@ ERA
 - Discovery can happen before explanation.
 - The interface should feel like a constellation, archive, and journey.
 
-## MVP Screens
+## Current Screens
 
 ```
 HOME
-THE MOON
+STORYTELLING
+LORE
+EXPLORE
+ARCHIVE
+JOURNEY
+STORY JOURNEY
 THE WITNESS
 THE CREW
-EVENT
-MESSAGE
-WITNESS LOG
+EVENTS
+MESSAGES
+SEDUCTION
+FAULT LINES
+EXPOSURE
+PAST PRESENCE
+PROMOTING
+CONFLICT
+SANITY'S LAST BREATH
+CHANGE
+CHANGE ADVISORY BOARD
+VILLAINS
+CHASING HEART
+LOVESTRUCK
+BREATH ELECTRIC
+END OF AN ERA
 TIMELINE
 CONSTELLATION
-PAST PRESENCE
-NEXT PHASE
+ENTITY
 ```
+
+## Discovery Pattern
+
+```
+STORY
+  ↓
+JOURNEY
+  ↓
+NODE
+  ↓
+RELATED NODE
+  ↓
+CONSTELLATION / ARCHIVE
+```
+
+The Observer can enter from a story, from a search, or from the archive. There is no required single starting point.
