@@ -69,7 +69,10 @@
 - [x] Lightweight entity explorer/search
 - [x] Witness Archive discovery
 - [ ] Interactive discovery polish
-- [ ] Full journey with richer real-world content
+- [x] Lore seed enrichment with provenance
+- [x] Multi-event Lore Arc
+- [x] Lore Book
+- [ ] Full journey with richer user-provided canon/lore content
 
 ## PHASE 5 — SCALE ONLY WHEN NEEDED
 
