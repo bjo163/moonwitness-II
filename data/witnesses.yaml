@@ -25,3 +25,66 @@ witnesses:
     canon_level: lore
     visibility: public
     status: review
+
+  - id: witness_002
+    event: event_002
+    era: era_01
+    witnessed_by:
+      - THE_MOON
+    signal: "A presence arrives."
+    observation: "The arrival is visible before its full significance is known."
+    message: msg_002
+    seduction: seduction_002
+    fault_lines:
+      - fault_002
+    exposure: exposure_002
+    past_presence: past_presence_002
+    change: change_002
+    next_phase: era_02
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    canon_level: lore
+    visibility: public
+    status: review
+
+  - id: witness_003
+    event: event_003
+    era: era_03
+    witnessed_by:
+      - char_the_shadow
+    signal: "The name changes; the trace remains."
+    observation: "The runaway pattern is recorded as movement and memory, not as a final identity claim."
+    message: msg_003
+    seduction: seduction_003
+    fault_lines:
+      - fault_003
+    exposure: exposure_003
+    past_presence: past_presence_003
+    change: change_003
+    next_phase: era_04
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    canon_level: lore
+    visibility: public
+    status: review
+
+  - id: witness_004
+    event: event_004
+    era: era_04
+    witnessed_by:
+      - char_the_shadow
+    signal: "The hidden pressure becomes visible."
+    observation: "The fault line and its surrounding signals can now be seen together."
+    message: msg_004
+    seduction: seduction_004
+    fault_lines:
+      - fault_004
+    exposure: exposure_004
+    past_presence: past_presence_004
+    change: change_004
+    next_phase: era_05
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    canon_level: lore
+    visibility: public
+    status: review
