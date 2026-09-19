@@ -28,6 +28,10 @@ stories:
     related_event: event_001
     related_witness: witness_001
     related_message: msg_001
+    next_event:
+      - event_002
+      - event_003
+      - event_004
     next_phase: era_07
     status: review
 
