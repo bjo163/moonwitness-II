@@ -501,6 +501,71 @@ blockquote {
   letter-spacing: -.04em;
 }
 
+.trace-chain {
+  display: grid;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.018);
+}
+
+.trace-chain-label {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .15em;
+}
+
+.trace-chain > strong {
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.trace-step {
+  display: grid;
+  gap: 3px;
+  padding: 12px 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.trace-step span {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.trace-step strong {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.trace-step:hover strong,
+.relationship-row:hover strong {
+  color: var(--accent);
+}
+
+.relationship-row small {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.constellation-reset {
+  margin-top: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
 .relationship-list {
   display: grid;
   gap: 8px;
