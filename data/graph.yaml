@@ -2,6 +2,7 @@ version: "0.1"
 
 graph:
   nodes:
+    - story_001
     - char_the_shadow
     - char_a_lah
     - char_dogs_from_universe
@@ -13,18 +14,41 @@ graph:
     - char_jhnny_depp
     - era_00
     - era_07
-    - story_001
     - event_001
+    - event_002
+    - event_003
+    - event_004
     - witness_001
+    - witness_002
+    - witness_003
+    - witness_004
     - msg_001
+    - msg_002
+    - msg_003
+    - msg_004
     - seduction_001
+    - seduction_002
+    - seduction_003
+    - seduction_004
     - fault_001
+    - fault_002
+    - fault_003
+    - fault_004
     - exposure_001
+    - exposure_002
+    - exposure_003
+    - exposure_004
     - past_presence_001
+    - past_presence_002
+    - past_presence_003
+    - past_presence_004
     - promoting_001
     - conflict_001
     - sanity_last_breath_001
     - change_001
+    - change_002
+    - change_003
+    - change_004
     - villain_001
     - cab_001
     - chasing_heart_001
