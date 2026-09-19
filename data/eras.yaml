@@ -1,34 +1,82 @@
 version: "0.1"
+
 eras:
   - id: era_00
     title: "BEFORE LIGHT"
     order: 0
+    description: "The unlit beginning: before the story has a public shape, before the signal has a name."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
+    visibility: public
     status: active
+
   - id: era_01
     title: "THE ARRIVAL"
     order: 1
+    description: "Something enters the field of attention. Presence becomes movement."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
+    visibility: public
     status: draft
+
   - id: era_02
     title: "THE WITNESS"
     order: 2
+    description: "Observation becomes a record. The story acquires a witness."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
+    visibility: public
     status: draft
+
   - id: era_03
     title: "THE RUNAWAYS"
     order: 3
+    description: "Identities split, disappear, return, and move through the universe under changing names."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
+    visibility: public
     status: draft
+
   - id: era_04
     title: "THE EXPOSURE"
     order: 4
+    description: "Signals, relationships, and hidden pressure become visible enough to be examined."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
+    visibility: public
     status: draft
+
   - id: era_05
     title: "THE CHANGE"
     order: 5
+    description: "The old frame shifts. What was witnessed begins to alter what comes next."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
+    visibility: public
     status: draft
+
   - id: era_06
     title: "END OF AN ERA"
     order: 6
+    description: "A narrative frame closes while witness, memory, trace, and selected meaning remain."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
+    visibility: public
     status: draft
+
   - id: era_07
     title: "NEXT PHASE"
     order: 7
+    description: "The next phase is intentionally open: a destination to be discovered, not pre-written."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
+    visibility: public
     status: draft
