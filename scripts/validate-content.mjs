@@ -126,6 +126,31 @@ for (const [section, id] of loopReferences) {
   }
 }
 
+const requiredCanonLevels = new Set([
+  "canon",
+  "lore",
+  "interpretation",
+  "unknown",
+]);
+
+const requiredVisibilities = new Set([
+  "public",
+  "unlisted",
+  "archived",
+  "private",
+]);
+
+const validateMetadata = (items, source) => {
+  for (const item of items ?? []) {
+    if (item.canon_level && !requiredCanonLevels.has(item.canon_level)) {
+      fail(`Unknown canon_level "${item.canon_level}" in ${source}`);
+    }
+    if (item.visibility && !requiredVisibilities.has(item.visibility)) {
+      fail(`Unknown visibility "${item.visibility}" in ${source}`);
+    }
+  }
+};
+
 const requiredStatuses = new Set([
   "draft",
   "review",
@@ -148,8 +173,10 @@ const validateStatuses = (items, source) => {
 
 for (const [source, items] of collectionEntries) {
   validateStatuses(items, `data/${source}`);
+  validateMetadata(items, `data/${source}`);
 }
 validateStatuses(datasets.relationships.relationships, "data/relationships.yaml");
+validateMetadata(datasets.relationships.relationships, "data/relationships.yaml");
 
 if (datasets.loop.version !== "0.1") {
   fail(`Unsupported first-loop version: ${datasets.loop.version}`);
