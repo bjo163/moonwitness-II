@@ -76,7 +76,7 @@
 - [x] Per-story Journey routes
 - [x] Linked story traces in Journey and Constellation
 - [x] Multi-event Lore Arc
-- [ ] Full journey with richer user-provided canon/lore content
+- [x] Full journey with richer user-provided canon/lore content (current lore seed)
 
 ## PHASE 5 — SCALE ONLY WHEN NEEDED
 
