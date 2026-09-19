@@ -16,3 +16,50 @@ seductions:
     provenance: "MoonWitness narrative system"
     visibility: public
     status: review
+
+  - id: seduction_002
+    title: "THE ARRIVAL PULL"
+    type: ATTRACTION
+    event: event_002
+    premise: "Presence creates curiosity before explanation catches up."
+    flow:
+      - ATTRACTION
+      - CURIOSITY
+      - FOLLOW
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: seduction_003
+    title: "THE RUNAWAY PULL"
+    type: ATTACHMENT
+    event: event_003
+    premise: "A disappearing identity can create a stronger need to understand the trace."
+    flow:
+      - ATTRACTION
+      - CURIOSITY
+      - ATTACHMENT
+      - PURSUIT
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: seduction_004
+    title: "THE EXPOSURE PULL"
+    type: REVELATION
+    event: event_004
+    premise: "Seeing more creates a new question rather than a final answer."
+    flow:
+      - CURIOSITY
+      - TEMPTATION
+      - REVELATION
+      - CHANGE
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
