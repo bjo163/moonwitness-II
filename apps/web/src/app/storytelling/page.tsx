@@ -36,9 +36,14 @@ export default function StorytellingPage() {
               <h3>{story.opening ?? story.premise ?? "The story is still forming."}</h3>
               <p>{story.premise ?? "Unknown premise."}</p>
               <p className="muted">{story.ending ?? "The ending remains open."}</p>
-              <Link className="entity-open" href={"/entity/" + story.id}>
-                OPEN STORY NODE ↗
-              </Link>
+              <div className="home-links">
+                <Link className="entity-open" href={"/journey/" + story.id}>
+                  FOLLOW STORY ↗
+                </Link>
+                <Link className="entity-open" href={"/entity/" + story.id}>
+                  OPEN STORY NODE ↗
+                </Link>
+              </div>
             </div>
 
             <div>
