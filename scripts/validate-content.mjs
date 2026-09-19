@@ -38,7 +38,6 @@ const datasets = {
   endOfAnEra: readYaml("data/end-of-an-era.yaml"),
   conflicts: readYaml("data/conflicts.yaml"),
   stories: readYaml("data/stories.yaml"),
-  stories: readYaml("data/stories.yaml"),
   loop: readYaml("data/first-loop.yaml"),
   relationships: readYaml("data/relationships.yaml"),
   graph: readYaml("data/graph.yaml"),
@@ -77,7 +76,6 @@ const collectionEntries = [
   ["breath-electric", datasets.breathElectric.breath_electric],
   ["end-of-an-era", datasets.endOfAnEra.end_of_an_era],
   ["conflicts", datasets.conflicts.conflicts],
-  ["stories", datasets.stories.stories],
   ["stories", datasets.stories.stories],
 ];
 
