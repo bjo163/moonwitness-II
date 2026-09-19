@@ -75,7 +75,7 @@ The web app is an interface to the platform. The repository is the source of tru
 ├── /breath-electric
 ├── /villains
 ├── /end-of-an-era
-stories
+├── /lore
 ├── /crew
 ├── /timeline
 ├── /constellation
@@ -102,7 +102,7 @@ lovestruck
 breath-electric
 villains
 end-of-an-era
-changes
+stories
 eras
 characters
 relationships
