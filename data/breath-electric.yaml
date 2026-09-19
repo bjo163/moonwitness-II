@@ -2,10 +2,14 @@ version: "0.1"
 
 breath_electric:
   - id: breath_electric_001
-    title: "Breath Electric"
+    title: "BREATH ELECTRIC"
     event: event_001
     energy: "A signal creates movement before it creates explanation."
     atmosphere: "Dark space, residual light, tension, and rhythm."
     rhythm: "Notice → pulse → follow → reveal."
     signal: "The line stays alive while the story changes."
-    status: draft
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness visual narrative system"
+    visibility: public
+    status: review
