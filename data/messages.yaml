@@ -2,7 +2,7 @@ version: "0.1"
 
 messages:
   - id: msg_001
-    title: "The First Message"
+    title: "THE FIRST MESSAGE"
     from: THE_MOON
     to: THE_OBSERVER
     era: era_00
@@ -19,6 +19,8 @@ messages:
       - fault_001
     related_past_presence:
       - past_presence_001
-    source: ORIGINAL
-    provenance: "MoonWitness seed loop"
-    status: draft
+    source: USER_INPUT
+    provenance: "MoonWitness project line"
+    canon_level: lore
+    visibility: public
+    status: review
