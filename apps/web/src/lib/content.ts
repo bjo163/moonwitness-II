@@ -331,7 +331,7 @@ export const getEventTrace = (eventId: string): NarrativeTrace | null => {
     faultLine: resolve(first(event.fault_lines)),
     exposure: resolve(first(event.exposure)),
     pastPresence: resolve(first(event.past_presence)),
-    change: resolve(first(event.actors) ? getChanges().find((item) => item.event === event.id)?.id : null)
+    change: resolve(getChanges().find((item) => item.event === event.id)?.id)
   };
 };
 
