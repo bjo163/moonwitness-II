@@ -14,3 +14,45 @@ exposures:
     provenance: "MoonWitness narrative system"
     visibility: public
     status: review
+
+  - id: exposure_002
+    title: "THE ARRIVAL EXPOSURE"
+    event: event_002
+    witness: witness_002
+    message: msg_002
+    fault_line: fault_002
+    what_is_exposed: "The arrival and the change it introduces into the field of attention."
+    what_remains_unknown: "What the arrival ultimately becomes."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: exposure_003
+    title: "THE RUNAWAY EXPOSURE"
+    event: event_003
+    witness: witness_003
+    message: msg_003
+    fault_line: fault_003
+    what_is_exposed: "The persistence of a trace through changing names and roles."
+    what_remains_unknown: "Which identity claims should remain lore, interpretation, or unknown."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
+
+  - id: exposure_004
+    title: "THE VISIBLE FAULT"
+    event: event_004
+    witness: witness_004
+    message: msg_004
+    fault_line: fault_004
+    what_is_exposed: "The relationship between signal, witness, message, and pressure."
+    what_remains_unknown: "What the next phase will preserve, change, or release."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore seed"
+    visibility: public
+    status: review
