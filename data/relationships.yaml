@@ -27,6 +27,30 @@ relationships:
     type: alias
     status: draft
 
+  - id: rel_story2_event2
+    from: story_002
+    to: event_002
+    type: tells
+    status: draft
+
+  - id: rel_story2_event3
+    from: story_002
+    to: event_003
+    type: follows
+    status: draft
+
+  - id: rel_story2_event4
+    from: story_002
+    to: event_004
+    type: resolves_into
+    status: draft
+
+  - id: rel_story2_era5
+    from: story_002
+    to: era_05
+    type: opens
+    status: draft
+
   - id: rel_story_event
     from: story_001
     to: event_001
@@ -277,4 +301,46 @@ relationships:
     from: past_presence_001
     to: era_07
     type: carries_forward
+    status: draft
+
+  - id: rel_event1_era0
+    from: event_001
+    to: era_00
+    type: belongs_to_era
+    status: draft
+
+  - id: rel_event2_era1
+    from: event_002
+    to: era_01
+    type: belongs_to_era
+    status: draft
+
+  - id: rel_event3_era3
+    from: event_003
+    to: era_03
+    type: belongs_to_era
+    status: draft
+
+  - id: rel_event4_era4
+    from: event_004
+    to: era_04
+    type: belongs_to_era
+    status: draft
+
+  - id: rel_change2_era2
+    from: change_002
+    to: era_02
+    type: opens
+    status: draft
+
+  - id: rel_change3_era4
+    from: change_003
+    to: era_04
+    type: opens
+    status: draft
+
+  - id: rel_change4_era5
+    from: change_004
+    to: era_05
+    type: opens
     status: draft
