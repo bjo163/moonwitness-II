@@ -4,4 +4,9 @@ changes:
   - id: change_001
     event: event_001
     next_phase: era_07
-    status: draft
+    movement: "The old frame ends; the witness, memory, trace, and selected meaning continue into the next phase."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness change system"
+    visibility: public
+    status: review
