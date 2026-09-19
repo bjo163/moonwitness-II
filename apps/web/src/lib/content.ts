@@ -160,6 +160,7 @@ type PastPresence = {
 
 type Change = {
   id: string;
+  title?: string;
   event: string;
   next_phase: string;
   status: string;
