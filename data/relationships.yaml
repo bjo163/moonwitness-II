@@ -63,6 +63,25 @@ relationships:
     type: frames
     status: draft
 
+  - id: rel_story1_event2
+    from: story_001
+    to: event_002
+    type: continues
+    status: draft
+
+  - id: rel_story1_event3
+    from: story_001
+    to: event_003
+    type: follows_trace
+    status: draft
+
+  - id: rel_story1_event4
+    from: story_001
+    to: event_004
+    type: arrives_at_exposure
+    status: draft
+
+
   - id: rel_story_next_phase
     from: story_001
     to: era_07
