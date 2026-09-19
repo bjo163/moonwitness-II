@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PlatformNav } from "@/components/platform-nav";
-import { getEntity, getRelationships, getStories } from "@/lib/content";
+import { getEntity, getRelationships, getStories, getStoryTraces } from "@/lib/content";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -25,6 +25,7 @@ export default async function StoryJourneyPage({ params }: PageProps) {
   const nextEventEntities = nextEvents
     .map((eventId) => getEntity(String(eventId)))
     .filter((item): item is NonNullable<ReturnType<typeof getEntity>> => Boolean(item));
+  const narrativeTraces = getStoryTraces(id);
   const traceLinks = getRelationships()
     .filter((relationship) => relationship.from === id || relationship.to === id)
     .map((relationship) => {
@@ -93,6 +94,43 @@ export default async function StoryJourneyPage({ params }: PageProps) {
                 <p className="muted">Continue the trace.</p>
               </Link>
             ))}
+          </div>
+        </section>
+      ) : null}
+
+      {narrativeTraces.length ? (
+        <section className="rail">
+          <div className="section-head">
+            <span>{narrativeTraces.length}</span>
+            <h2>FULL NARRATIVE TRACE</h2>
+          </div>
+          <div className="narrative-traces">
+            {narrativeTraces.map((trace) => {
+              const steps = [
+                ["EVENT", trace.event],
+                ["WITNESS", trace.witness],
+                ["MESSAGE", trace.message],
+                ["SEDUCTION", trace.seduction],
+                ["FAULT LINE", trace.faultLine],
+                ["EXPOSURE", trace.exposure],
+                ["PAST PRESENCE", trace.pastPresence],
+                ["CHANGE", trace.change]
+              ].filter(([, item]) => Boolean(item)) as [string, NonNullable<(typeof trace)["event"]>][];
+              return (
+                <article className="narrative-trace-card" key={trace.event?.id ?? Math.random()}>
+                  <div className="label">TRACE / {trace.event?.type}</div>
+                  <h3>{trace.event?.title ?? "UNKNOWN EVENT"}</h3>
+                  <div className="narrative-trace-steps">
+                    {steps.map(([label, item], index) => (
+                      <Link className="narrative-trace-step" href={"/entity/" + item.id} key={item.id}>
+                        <span>{String(index + 1).padStart(2, "0")} · {label}</span>
+                        <strong>{item.title}</strong>
+                      </Link>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
       ) : null}
