@@ -7,18 +7,21 @@ witnesses:
     witnessed_by:
       - THE_MOON
     signal: "A signal was noticed."
-    observation: "A signal was noticed."
+    observation: "A signal was noticed. The record captures the observation without claiming why it happened or what it means."
     message: msg_001
     seduction: seduction_001
     fault_lines:
       - fault_001
+    exposure: exposure_001
     past_presence: past_presence_001
     audit: "What is actually here?"
     evaluation: "What matters?"
     balancing: "What should be kept, changed, reduced, restored, or released?"
     promoting: "What deserves to continue?"
     change: change_001
-    next_phase: "NEXT PHASE"
-    source: ORIGINAL
-    provenance: "MoonWitness seed loop"
-    status: draft
+    next_phase: era_07
+    source: USER_INPUT
+    provenance: "MoonWitness first witness loop"
+    canon_level: lore
+    visibility: public
+    status: review
