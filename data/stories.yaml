@@ -4,20 +4,29 @@ stories:
   - id: story_001
     title: "When The Moon Witness"
     theme: "END OF AN ERA"
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness master blueprint"
     premise: "A signal is noticed. A witness records it. A message travels. The trace begins to pull the present toward the past."
     opening: "Before the story had a name, there was only a signal and someone willing to notice it."
     movement:
       - "Notice the event."
       - "Follow the witness."
       - "Read the message."
+      - "Let curiosity pull the thread."
       - "Find the fault line."
-      - "Expose what can be shown."
+      - "Expose what can actually be shown."
       - "Trace what remains."
-      - "Ask what deserves to continue."
-      - "Move into the next phase."
+      - "Audit what is here."
+      - "Evaluate what matters."
+      - "Balance what should stay, change, or release."
+      - "Promote what deserves to continue."
+      - "Enter the conflict."
+      - "Reach the last breath before change."
+      - "Carry the surviving trace into the next phase."
     ending: "The era closes. The witness remains."
     related_event: event_001
     related_witness: witness_001
     related_message: msg_001
     next_phase: era_07
-    status: draft
+    status: review
