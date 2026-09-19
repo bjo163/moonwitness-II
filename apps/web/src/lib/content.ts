@@ -322,7 +322,11 @@ export const getEventTrace = (eventId: string): NarrativeTrace | null => {
   return {
     event: summaries.get(event.id) ?? null,
     witness: resolve(first(event.witnesses)),
-    message: resolve(first(event.witnesses)?.message),
+    message: resolve(
+      typeof first(event.witnesses) === "string"
+        ? getWitnesses().find((item) => item.id === first(event.witnesses))?.message
+        : null
+    ),
     seduction: resolve(first(event.seduction)),
     faultLine: resolve(first(event.fault_lines)),
     exposure: resolve(first(event.exposure)),
