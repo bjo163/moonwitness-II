@@ -86,13 +86,36 @@ export default async function StoryJourneyPage({ params }: PageProps) {
             <h2>NEXT EVENTS</h2>
           </div>
           <div className="grid">
-            {nextEvents.map((eventId) => (
-              <Link className="card entity-card" href={"/entity/" + String(eventId)} key={String(eventId)}>
-                <div className="card-index">EVENT</div>
-                <h3>{String(eventId)}</h3>
+            {nextEventEntities.map((event) => (
+              <Link className="card entity-card" href={"/entity/" + event.id} key={event.id}>
+                <div className="card-index">{event.type}</div>
+                <h3>{event.title}</h3>
                 <p className="muted">Continue the trace.</p>
               </Link>
             ))}
+          </div>
+        </section>
+      ) : null}
+
+      {traceLinks.length ? (
+        <section className="rail">
+          <div className="section-head">
+            <span>{traceLinks.length}</span>
+            <h2>CONNECTED TRACE</h2>
+          </div>
+          <div className="grid">
+            {traceLinks.map(({ relationship, target }) => {
+              const direction = relationship.from === id ? "OUTBOUND" : "INBOUND";
+              return (
+                <Link className="card entity-card" href={"/entity/" + target.id} key={relationship.id}>
+                  <div className="card-index">{direction} · {relationship.type}</div>
+                  <h3>{target.title}</h3>
+                  <p className="muted">
+                    {relationship.context ?? "Follow this relationship into the wider constellation."}
+                  </p>
+                </Link>
+              );
+            })}
           </div>
         </section>
       ) : null}
