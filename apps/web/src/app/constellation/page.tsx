@@ -1,6 +1,6 @@
 import { PlatformNav } from "@/components/platform-nav";
 import { ConstellationExplorer } from "@/components/constellation-explorer";
-import { getGraph, getRelationships } from "@/lib/content";
+import { getEntitySummaries, getGraph, getRelationships } from "@/lib/content";
 
 export const metadata = {
   title: "Constellation — MoonWitness"
@@ -9,6 +9,7 @@ export const metadata = {
 export default function ConstellationPage() {
   const graph = getGraph();
   const relationships = getRelationships();
+  const nodes = getEntitySummaries();
 
   return (
     <main className="shell">
@@ -38,7 +39,7 @@ export default function ConstellationPage() {
       </section>
 
       <section className="rail">
-        <ConstellationExplorer nodes={graph.nodes} relationships={relationships} />
+        <ConstellationExplorer nodes={nodes} relationships={relationships} />
       </section>
 
       <section className="rail">
