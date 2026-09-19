@@ -6,12 +6,23 @@ type Era = {
   id: string;
   title: string;
   order: number;
+  description?: string;
+  canon_level?: string;
+  source?: string;
+  provenance?: string;
+  visibility?: string;
   status: string;
 };
 
 type Character = {
   id: string;
   name: string;
+  description?: string;
+  canon_level?: string;
+  source?: string;
+  provenance?: string;
+  visibility?: string;
+  status?: string;
   aliases?: string[];
   nickname?: string;
   role?: string[];
