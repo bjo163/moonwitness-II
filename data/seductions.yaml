@@ -2,12 +2,17 @@ version: "0.1"
 
 seductions:
   - id: seduction_001
-    title: "The First Curiosity"
+    title: "THE FIRST CURIOSITY"
     type: CURIOSITY
     event: event_001
+    premise: "A signal becomes difficult to ignore because it creates a question."
     flow:
       - ATTRACTION
       - CURIOSITY
       - TEMPTATION
       - ATTACHMENT
-    status: draft
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness narrative system"
+    visibility: public
+    status: review
