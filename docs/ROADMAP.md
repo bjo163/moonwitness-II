@@ -69,11 +69,12 @@
 - [x] Lightweight entity explorer/search
 - [x] Witness Archive discovery
 - [x] Story → Journey → Entity discovery path
-- [ ] Interactive discovery polish
+- [x] Interactive discovery polish
 - [x] Lore seed enrichment with provenance
 - [x] Multi-event Lore Arc
 - [x] Lore Book
 - [x] Per-story Journey routes
+- [x] Linked story traces in Journey and Constellation
 - [x] Multi-event Lore Arc
 - [ ] Full journey with richer user-provided canon/lore content
 
