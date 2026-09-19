@@ -30,3 +30,30 @@ stories:
     related_message: msg_001
     next_phase: era_07
     status: review
+
+  - id: story_002
+    title: "THE RUNAWAY TRACE"
+    theme: "IDENTITY · MEMORY · MOVEMENT"
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness lore arc seed"
+    premise: "A presence arrives, names begin to move, and the trace survives the identities placed around it."
+    opening: "The arrival changes the field. Following becomes more important than naming."
+    movement:
+      - "Enter THE ARRIVAL."
+      - "Witness the new presence."
+      - "Follow the message."
+      - "Let attraction become curiosity."
+      - "Watch the fault line form."
+      - "Trace the runaway pattern."
+      - "Expose what remains visible."
+      - "Carry the memory into the next era."
+    ending: "The name can change. The trace can remain."
+    related_event: event_002
+    related_witness: witness_002
+    related_message: msg_002
+    next_event:
+      - event_003
+      - event_004
+    next_phase: era_05
+    status: review
