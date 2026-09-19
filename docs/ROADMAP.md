@@ -92,3 +92,7 @@ Possible later additions:
 - Analytics
 
 > **Do not build Phase 5 before Phase 3 proves useful.**
+
+## PHASE 4 VERIFICATION NOTE
+
+Runtime verification is exercised through the pull-request workflow. The repository also exposes manual workflow triggers for repeatable checks.
