@@ -107,24 +107,24 @@ export default async function StoryJourneyPage({ params }: PageProps) {
           <div className="narrative-traces">
             {narrativeTraces.map((trace) => {
               const steps = [
-                ["EVENT", trace.event],
-                ["WITNESS", trace.witness],
-                ["MESSAGE", trace.message],
-                ["SEDUCTION", trace.seduction],
-                ["FAULT LINE", trace.faultLine],
-                ["EXPOSURE", trace.exposure],
-                ["PAST PRESENCE", trace.pastPresence],
-                ["CHANGE", trace.change]
-              ].filter(([, item]) => Boolean(item)) as [string, NonNullable<(typeof trace)["event"]>][];
+                { label: "EVENT", item: trace.event },
+                { label: "WITNESS", item: trace.witness },
+                { label: "MESSAGE", item: trace.message },
+                { label: "SEDUCTION", item: trace.seduction },
+                { label: "FAULT LINE", item: trace.faultLine },
+                { label: "EXPOSURE", item: trace.exposure },
+                { label: "PAST PRESENCE", item: trace.pastPresence },
+                { label: "CHANGE", item: trace.change }
+              ].filter((step) => Boolean(step.item));
               return (
-                <article className="narrative-trace-card" key={trace.event?.id ?? Math.random()}>
+                <article className="narrative-trace-card" key={trace.event?.id ?? "unknown"}>
                   <div className="label">TRACE / {trace.event?.type}</div>
                   <h3>{trace.event?.title ?? "UNKNOWN EVENT"}</h3>
                   <div className="narrative-trace-steps">
-                    {steps.map(([label, item], index) => (
-                      <Link className="narrative-trace-step" href={"/entity/" + item.id} key={item.id}>
+                    {steps.map(({ label, item }, index) => (
+                      <Link className="narrative-trace-step" href={"/entity/" + item!.id} key={item!.id}>
                         <span>{String(index + 1).padStart(2, "0")} · {label}</span>
-                        <strong>{item.title}</strong>
+                        <strong>{item!.title}</strong>
                       </Link>
                     ))}
                   </div>
