@@ -2,11 +2,16 @@ version: "0.1"
 
 sanity_last_breath:
   - id: sanity_last_breath_001
-    title: "The Last Breath Before Change"
+    title: "THE LAST BREATH BEFORE CHANGE"
     event: event_001
     trigger: "Pressure reaches a narrative threshold."
     pressure: "The existing story can no longer hold every contradiction."
     conflict: "Silence, surrender, resistance, escape, and revelation become possible."
     final_signal: "The old frame begins to fade."
     outcome: "A change becomes possible."
-    status: draft
+    note: "Narrative threshold; not a literal or clinical classification."
+    canon_level: lore
+    source: USER_INPUT
+    provenance: "MoonWitness narrative system"
+    visibility: public
+    status: review
