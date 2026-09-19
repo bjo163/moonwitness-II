@@ -261,6 +261,42 @@ export const getRelationships = () =>
 export const getGraph = () =>
   loadYaml<{ version: string; graph: { nodes: string[]; traversal: string[] } }>("data/graph.yaml").graph;
 
+export type EntitySummary = {
+  id: string;
+  type: string;
+  title: string;
+};
+
+export const getEntitySummaries = (): EntitySummary[] => {
+  const summaries: EntitySummary[] = [
+    ...getCharacters().map((item) => ({ id: item.id, type: "CHARACTER", title: item.name })),
+    ...getEras().map((item) => ({ id: item.id, type: "ERA", title: item.title })),
+    ...getEvents().map((item) => ({ id: item.id, type: "EVENT", title: item.title })),
+    ...getWitnesses().map((item) => ({ id: item.id, type: "WITNESS", title: item.id })),
+    ...getMessages().map((item) => ({ id: item.id, type: "MESSAGE", title: item.title ?? item.message })),
+    ...getExposures().map((item) => ({ id: item.id, type: "EXPOSURE", title: item.title })),
+    ...getSeductionEntries().map((item) => ({ id: item.id, type: "SEDUCTION", title: item.title })),
+    ...getFaultLines().map((item) => ({ id: item.id, type: "FAULT_LINE", title: item.title })),
+    ...getPastPresences().map((item) => ({ id: item.id, type: "PAST_PRESENCE", title: item.title })),
+    ...getChanges().map((item) => ({ id: item.id, type: "CHANGE", title: item.title ?? item.id })),
+    ...getPromoting().map((item) => ({ id: item.id, type: "PROMOTING", title: item.title })),
+    ...getVillains().map((item) => ({ id: item.id, type: "VILLAIN", title: item.title })),
+    ...getSanityLastBreath().map((item) => ({ id: item.id, type: "SANITY_LAST_BREATH", title: item.title })),
+    ...getChangeAdvisoryBoard().map((item) => ({ id: item.id, type: "CHANGE_ADVISORY_BOARD", title: item.title })),
+    ...getChasingHeart().map((item) => ({ id: item.id, type: "CHASING_HEART", title: item.title })),
+    ...getLovestruck().map((item) => ({ id: item.id, type: "LOVESTRUCK", title: item.title })),
+    ...getBreathElectric().map((item) => ({ id: item.id, type: "BREATH_ELECTRIC", title: item.title })),
+    ...getEndOfAnEra().map((item) => ({ id: item.id, type: "END_OF_AN_ERA", title: item.title })),
+    ...getConflicts().map((item) => ({ id: item.id, type: "CONFLICT", title: item.title })),
+    ...getStories().map((item) => ({ id: item.id, type: "STORY", title: item.title }))
+  ];
+
+  const lookup = new Map(summaries.map((summary) => [summary.id, summary]));
+  return getGraph().nodes
+    .map((id) => lookup.get(id))
+    .filter((summary): summary is EntitySummary => Boolean(summary));
+};
+
 export const getFirstLoop = () => {
   const manifest = loadYaml<FirstLoopManifest>("data/first-loop.yaml");
   const event = getEvents().find((item) => item.id === manifest.event);
