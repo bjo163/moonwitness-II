@@ -149,6 +149,7 @@ The web app reads canonical YAML content from `data/` through its server-side co
 - [Canon](docs/CANON.md)
 - [Entity Model](docs/ENTITY_MODEL.md)
 - [Content Schema](docs/CONTENT_SCHEMA.md)
+- [Deployment](docs/DEPLOYMENT.md)
 
 ## Philosophy
 
