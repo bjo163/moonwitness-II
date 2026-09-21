@@ -1,15 +1,22 @@
-# MoonWitness Content Validation
+# MoonWitness Validation
 
-MoonWitness uses a small validator before adding heavier infrastructure.
+MoonWitness keeps its verification layer intentionally small, but the operational baseline now checks both canonical content and the production web application.
 
-## Run
+## Install
+
+Use Node.js 22 and the committed lockfile:
 
 ```bash
-npm install
+npm ci
+```
+
+## Content validation
+
+```bash
 npm run validate:content
 ```
 
-The validator checks:
+The content validator checks:
 
 - Duplicate IDs.
 - Missing IDs.
@@ -17,5 +24,18 @@ The validator checks:
 - Unsupported content statuses.
 
 It intentionally does **not** enforce the whole narrative.
+
+## Web quality gates
+
+```bash
+npm run web:lint
+npm run web:typecheck
+npm run web:build
+npm run web:smoke
+```
+
+The smoke test starts the production Next.js server and verifies core routes, including Home, Explorer, Lore, Storytelling, Constellation, and a canonical entity page.
+
+GitHub Actions runs these gates using `npm ci`, so dependency installation is reproducible from `package-lock.json`.
 
 > Capture first. Refine later.
