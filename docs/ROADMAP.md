@@ -88,7 +88,7 @@
 - [x] Filter discovery results by node type
 - [x] Keep YAML as the source of truth
 - [x] Keep search dependency-free and server-rendered
-- [ ] Verify Phase 5A through GitHub content validation and production build
+- [x] Verify Phase 5A through GitHub content validation and production build (PR #10: Content Validation #227, Platform Build #167)
 
 Possible later additions, still usage-gated:
 
