@@ -11,7 +11,8 @@
     "web:typecheck": "npm --prefix apps/web run typecheck",
     "web:build": "npm --prefix apps/web run build",
     "web:start": "npm --prefix apps/web run start",
-    "web:smoke": "node scripts/smoke-web.mjs"
+    "web:smoke": "node scripts/smoke-web.mjs",
+    "web:verify-trace": "node scripts/verify-web-trace.mjs"
   },
   "dependencies": {
     "yaml": "^2.8.1"
