@@ -38,5 +38,8 @@ jobs:
       - name: Build web app
         run: npm run web:build
 
+      - name: Verify deployment trace
+        run: npm run web:verify-trace
+
       - name: Smoke production routes
         run: npm run web:smoke
