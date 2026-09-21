@@ -137,6 +137,37 @@
 - [x] Preserve specialist narrative surfaces through contextual links and discovery
 - [ ] Validate navigation behavior with real usage signals
 
+### Phase 6C — Experience assurance
+
+- [x] Add Playwright browser E2E validation
+- [x] Cover primary navigation and Explorer → Entity flow
+- [x] Add serious/critical accessibility checks on core routes
+- [x] Verify robots and sitemap through the browser-test layer
+- [x] Run browser experience validation in GitHub Actions
+
+### Phase 6D — SEO & shareability
+
+- [x] Add canonical production metadata base
+- [x] Add Open Graph and Twitter metadata defaults
+- [x] Add robots.txt
+- [x] Add sitemap.xml with public canonical entities
+- [x] Add canonical dynamic metadata for entity pages
+
+### Phase 6E — Public content boundary
+
+- [x] Enforce visibility-aware public discovery
+- [x] Keep unlisted content out of public discovery
+- [x] Block private/archived content from public entity rendering
+- [x] Remove raw canonical node dumps from the public Entity UI
+
+### Phase 6F — Content quality warnings
+
+- [x] Detect duplicate graph nodes
+- [x] Detect duplicate relationship edges
+- [x] Warn when public canon/lore lacks provenance
+- [x] Fail validation if private/archived nodes leak into the public graph
+- [x] Keep structural warnings non-destructive to creative narrative
+
 Possible later additions, still usage-gated:
 
 - Database
