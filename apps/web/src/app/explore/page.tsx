@@ -1,28 +1,29 @@
 import Link from "next/link";
 import { PlatformNav } from "@/components/platform-nav";
-import { getAllEntities } from "@/lib/content";
+import { getSearchDocuments } from "@/lib/content";
 
 export const metadata = {
   title: "Explore — MoonWitness"
 };
 
 type PageProps = {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ q?: string; type?: string }>;
 };
 
 export default async function ExplorePage({ searchParams }: PageProps) {
-  const { q = "" } = await searchParams;
+  const { q = "", type = "" } = await searchParams;
   const query = q.trim().toLowerCase();
-  const entities = getAllEntities();
+  const selectedType = type.trim().toUpperCase();
+  const documents = getSearchDocuments();
+  const types = Array.from(new Set(documents.map((document) => document.type))).sort();
 
-  const results = query
-    ? entities.filter((entity) =>
-        [entity.id, entity.type, entity.title]
-          .join(" ")
-          .toLowerCase()
-          .includes(query)
-      )
-    : entities;
+  const results = documents.filter((document) => {
+    const matchesType = !selectedType || document.type === selectedType;
+    const matchesQuery = !query || document.searchText.includes(query);
+    return matchesType && matchesQuery;
+  });
+
+  const hasFilters = Boolean(query || selectedType);
 
   return (
     <main className="shell">
@@ -32,8 +33,8 @@ export default async function ExplorePage({ searchParams }: PageProps) {
         <div className="eyebrow">THE EXPLORER</div>
         <h1>FIND A SIGNAL</h1>
         <p className="lede">
-          Search the connected universe without needing to know where the story
-          lives first.
+          Search the connected universe across titles, lore, provenance,
+          narrative context, and linked canonical references.
         </p>
 
         <form className="explore-form" method="get">
@@ -41,8 +42,16 @@ export default async function ExplorePage({ searchParams }: PageProps) {
             aria-label="Search MoonWitness"
             name="q"
             defaultValue={q}
-            placeholder="search names, nodes, layers..."
+            placeholder="search lore, names, signals, references..."
           />
+          <select aria-label="Filter by node type" name="type" defaultValue={selectedType}>
+            <option value="">ALL TYPES</option>
+            {types.map((entityType) => (
+              <option value={entityType} key={entityType}>
+                {entityType.replaceAll("_", " ")}
+              </option>
+            ))}
+          </select>
           <button type="submit">SEARCH ↗</button>
         </form>
       </section>
@@ -50,7 +59,7 @@ export default async function ExplorePage({ searchParams }: PageProps) {
       <section className="rail">
         <div className="section-head">
           <span>{results.length}</span>
-          <h2>{query ? "MATCHES" : "ALL NODES"}</h2>
+          <h2>{hasFilters ? "MATCHES" : "ALL NODES"}</h2>
         </div>
 
         {results.length ? (
@@ -66,8 +75,10 @@ export default async function ExplorePage({ searchParams }: PageProps) {
         ) : (
           <article className="feature-card">
             <span className="label">NO SIGNAL</span>
-            <h3>Nothing matched “{q}”.</h3>
-            <p className="muted">Unknown is valid. Try another trace.</p>
+            <h3>Nothing matched this trace.</h3>
+            <p className="muted">
+              Unknown is valid. Try a broader phrase or another node type.
+            </p>
           </article>
         )}
       </section>
