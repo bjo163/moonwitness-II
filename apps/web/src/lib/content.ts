@@ -174,6 +174,16 @@ type NarrativeEntry = {
   [key: string]: unknown;
 };
 
+type Story = NarrativeEntry & {
+  theme?: string;
+  premise?: string;
+  opening?: string;
+  ending?: string;
+  movement?: string[];
+  next_event?: string[];
+  next_phase?: string;
+};
+
 type Relationship = {
   id: string;
   from: string;
@@ -241,8 +251,11 @@ export const getPastPresences = () =>
 export const getChanges = () =>
   loadYaml<{ version: string; changes: Change[] }>("data/changes.yaml").changes;
 
-const getNarrativeEntries = (relativePath: string, key: string) =>
-  (loadYaml<{ version: string; [key: string]: NarrativeEntry[] }>(relativePath)[key] ?? []);
+const getNarrativeEntries = (relativePath: string, key: string): NarrativeEntry[] => {
+  const data = loadYaml<Record<string, unknown>>(relativePath);
+  const entries = data[key];
+  return Array.isArray(entries) ? (entries as NarrativeEntry[]) : [];
+};
 
 export const getPromoting = () => getNarrativeEntries("data/promoting.yaml", "promoting");
 export const getVillains = () => getNarrativeEntries("data/villains.yaml", "villains");
@@ -253,7 +266,8 @@ export const getLovestruck = () => getNarrativeEntries("data/lovestruck.yaml", "
 export const getBreathElectric = () => getNarrativeEntries("data/breath-electric.yaml", "breath_electric");
 export const getEndOfAnEra = () => getNarrativeEntries("data/end-of-an-era.yaml", "end_of_an_era");
 export const getConflicts = () => getNarrativeEntries("data/conflicts.yaml", "conflicts");
-export const getStories = () => getNarrativeEntries("data/stories.yaml", "stories");
+export const getStories = () =>
+  loadYaml<{ version: string; stories: Story[] }>("data/stories.yaml").stories;
 
 export const getRelationships = () =>
   loadYaml<{ version: string; relationships: Relationship[] }>("data/relationships.yaml").relationships;
