@@ -113,21 +113,32 @@ See the [Platform Blueprint](docs/PLATFORM_BLUEPRINT.md) and [Fast Track Roadmap
 
 ## Run the MVP
 
+MoonWitness targets Node.js 22 and uses the committed lockfile for reproducible installs.
+
 From the repository root:
 
 ```bash
-npm install
+npm ci
 npm run web:dev
 ```
 
-Production build:
+Quality gates:
 
 ```bash
+npm run validate:content
+npm run web:lint
+npm run web:typecheck
 npm run web:build
+npm run web:smoke
+```
+
+Run the production server directly:
+
+```bash
 npm run web:start
 ```
 
-The web app reads canonical YAML content from `data/` through its server-side content loader.
+The web app reads canonical YAML content from `data/` through its server-side content loader. GitHub Actions runs the same validation, lint, typecheck, production build, and production-route smoke gates before the baseline is considered healthy.
 
 ## Start Here
 
