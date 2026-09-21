@@ -903,7 +903,20 @@ blockquote {
   font: inherit;
 }
 
-.explore-form input:focus {
+.explore-form select {
+  min-width: 180px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  outline: none;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+.explore-form input:focus,
+.explore-form select:focus {
   border-color: var(--accent);
 }
 
