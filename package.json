@@ -12,7 +12,8 @@
     "web:build": "npm --prefix apps/web run build",
     "web:start": "npm --prefix apps/web run start",
     "web:smoke": "node scripts/smoke-web.mjs",
-    "web:verify-trace": "node scripts/verify-web-trace.mjs"
+    "web:verify-trace": "node scripts/verify-web-trace.mjs",
+    "web:e2e": "playwright test"
   },
   "dependencies": {
     "yaml": "^2.8.1"
