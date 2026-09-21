@@ -451,3 +451,49 @@ export const getAllEntities = () => {
     .map((id) => getEntity(id))
     .filter((entity): entity is NonNullable<ReturnType<typeof getEntity>> => Boolean(entity));
 };
+
+const collectSearchValues = (value: unknown): string[] => {
+  if (value === null || value === undefined) return [];
+
+  if (
+    typeof value === "string" ||
+    typeof value === "number" ||
+    typeof value === "boolean"
+  ) {
+    return [String(value)];
+  }
+
+  if (Array.isArray(value)) {
+    return value.flatMap((item) => collectSearchValues(item));
+  }
+
+  if (typeof value === "object") {
+    return Object.values(value as Record<string, unknown>).flatMap((item) =>
+      collectSearchValues(item)
+    );
+  }
+
+  return [];
+};
+
+export type SearchDocument = {
+  id: string;
+  type: string;
+  title: string;
+  searchText: string;
+};
+
+export const getSearchDocuments = (): SearchDocument[] =>
+  getAllEntities().map((entity) => ({
+    id: entity.id,
+    type: entity.type,
+    title: entity.title,
+    searchText: [
+      entity.id,
+      entity.type,
+      entity.title,
+      ...collectSearchValues(entity.data)
+    ]
+      .join(" ")
+      .toLowerCase()
+  }));
