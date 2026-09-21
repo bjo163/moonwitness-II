@@ -131,7 +131,9 @@ npm run validate:content
 npm run web:lint
 npm run web:typecheck
 npm run web:build
+npm run web:verify-trace
 npm run web:smoke
+npm run web:e2e
 ```
 
 Run the production server directly:
@@ -140,7 +142,7 @@ Run the production server directly:
 npm run web:start
 ```
 
-The web app reads canonical YAML content from `data/` through its server-side content loader. GitHub Actions runs the same validation, lint, typecheck, production build, and production-route smoke gates before the baseline is considered healthy.
+The web app reads canonical YAML content from `data/` through its server-side content loader. GitHub Actions runs content validation, lint, typecheck, production build, deployment-trace verification, production-route smoke checks, and a separate Chromium browser-experience workflow with accessibility checks.
 
 ## Start Here
 
