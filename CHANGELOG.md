@@ -6,6 +6,8 @@ The project follows semantic versioning for tagged releases.
 
 ## Unreleased
 
+## 0.2.0 — 2026-09-22
+
 ### Added
 
 - Lightweight Vercel Web Analytics instrumentation.
