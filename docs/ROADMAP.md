@@ -99,7 +99,7 @@
 - [x] Verify production Next.js build
 - [x] Smoke-test core production routes
 - [x] Verify Phase 5B on PR #12 (Content Validation #231, Platform Build #171)
-- [ ] Verify an actual Vercel production deployment
+- [x] Verify an actual Vercel production deployment
 
 ### Phase 5C — Release & governance readiness
 
@@ -126,4 +126,15 @@ Possible later additions, still usage-gated:
 
 ## POST-PHASE 4 — VERIFICATION
 
-GitHub runtime, build, deployment-trace, and production-route smoke verification are complete on main. Commit `281b967f26dd63c1b7d4dccc87c9be2b916bccd3` passes Content Validation #237 and Platform Build #177, including canonical YAML server-trace verification. Vercel production deployment verification remains open in Issue #7 until an actual project, deployment, URL, and live-route evidence are recorded.
+GitHub runtime, build, deployment-trace, production deployment, and live-route verification are complete.
+
+Verified production evidence:
+
+- Vercel project: `moonwitness-ii-web` (`prj_IWnhw1x7H2wyUvFPkfHPQcAxdFRO`)
+- Production deployment: `dpl_76FVCAxbjm5aHTth7N4Aez4zJJKt`
+- Production URL: `https://moonwitness-ii-web.vercel.app`
+- Verified deployed SHA: `01b0d410624a28430cc31edbea5f92fe67cb5a9e`
+- Live routes `/`, `/explore`, `/lore`, `/storytelling`, `/constellation`, and `/entity/era_00`: HTTP 200
+- Recent Vercel runtime-error check: no runtime errors found
+
+Issue #7 is complete. The remaining release-process task is to create the first Git tag/GitHub Release after the final release commit is deployed and verified.

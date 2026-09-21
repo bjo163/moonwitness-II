@@ -62,6 +62,18 @@ Only after the preceding gates are complete:
 4. create the GitHub Release using the changelog,
 5. verify that the tag, GitHub Release, Vercel deployment, and production SHA all point to the same code.
 
-## First release
+## First release status
 
-The repository currently declares version `0.1.0`, but that version must not be described as a verified production release until Issue #7 is closed with deployment evidence.
+The repository declares version `0.1.0`.
+
+Production verification prerequisites are complete:
+
+- Issue #7: closed/completed.
+- Vercel project: `prj_IWnhw1x7H2wyUvFPkfHPQcAxdFRO`.
+- Verified production deployment: `dpl_76FVCAxbjm5aHTth7N4Aez4zJJKt`.
+- Production URL: `https://moonwitness-ii-web.vercel.app`.
+- Verified deployed SHA: `01b0d410624a28430cc31edbea5f92fe67cb5a9e`.
+- Required live routes returned HTTP 200 with non-empty responses.
+- Recent Vercel runtime-error check found no runtime errors.
+
+The remaining release-process step is to create the Git tag and GitHub Release from the final verified release commit, then confirm that the tag/release SHA matches the production deployment.
