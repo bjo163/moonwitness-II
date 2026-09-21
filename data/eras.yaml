@@ -9,7 +9,7 @@ eras:
     source: USER_INPUT
     provenance: "MoonWitness master blueprint"
     visibility: public
-    status: active
+    status: published
 
   - id: era_01
     title: "THE ARRIVAL"
