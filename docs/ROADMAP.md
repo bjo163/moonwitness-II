@@ -90,6 +90,17 @@
 - [x] Keep search dependency-free and server-rendered
 - [x] Verify Phase 5A through GitHub content validation and production build (PR #10: Content Validation #227, Platform Build #167)
 
+### Phase 5B — Operational readiness
+
+- [x] Commit a reproducible npm lockfile
+- [x] Use `npm ci` in CI
+- [x] Enforce web source linting
+- [x] Enforce explicit TypeScript typecheck
+- [x] Verify production Next.js build
+- [x] Smoke-test core production routes
+- [x] Verify Phase 5B on PR #12 (Content Validation #231, Platform Build #171)
+- [ ] Verify an actual Vercel production deployment
+
 Possible later additions, still usage-gated:
 
 - Database

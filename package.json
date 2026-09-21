@@ -7,13 +7,19 @@
   "scripts": {
     "validate:content": "node scripts/validate-content.mjs",
     "web:dev": "npm --prefix apps/web run dev",
+    "web:lint": "npm --prefix apps/web run lint",
+    "web:typecheck": "npm --prefix apps/web run typecheck",
     "web:build": "npm --prefix apps/web run build",
-    "web:start": "npm --prefix apps/web run start"
+    "web:start": "npm --prefix apps/web run start",
+    "web:smoke": "node scripts/smoke-web.mjs"
   },
   "dependencies": {
     "yaml": "^2.8.1"
   },
   "workspaces": [
     "apps/web"
-  ]
+  ],
+  "engines": {
+    "node": ">=22 <23"
+  }
 }
