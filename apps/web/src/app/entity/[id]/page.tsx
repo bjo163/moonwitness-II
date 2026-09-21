@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { PlatformNav } from "@/components/platform-nav";
@@ -53,8 +54,60 @@ const renderValue = (value: unknown, knownIds: Set<string>): ReactNode => {
   return String(value);
 };
 
+const describeEntity = (data: Record<string, unknown>, fallback: string) => {
+  const candidates = [
+    data.description,
+    data.premise,
+    data.what_happened,
+    data.observation,
+    data.message,
+    data.context,
+  ];
+
+  const value = candidates.find((candidate) => typeof candidate === "string" && candidate.trim());
+  return typeof value === "string" ? value.slice(0, 180) : fallback;
+};
+
 export async function generateStaticParams() {
-  return getGraph().nodes.map((id) => ({ id }));
+  return getGraph().nodes
+    .filter((id) => Boolean(getEntity(id)))
+    .map((id) => ({ id }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const entity = getEntity(id);
+
+  if (!entity) {
+    return {
+      title: "Unknown Signal — MoonWitness",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const description = describeEntity(
+    entity.data as Record<string, unknown>,
+    `Explore ${entity.title}, a canonical ${entity.type.toLowerCase().replaceAll("_", " ")} node in MoonWitness.`
+  );
+
+  return {
+    title: `${entity.title} — MoonWitness`,
+    description,
+    alternates: {
+      canonical: `/entity/${entity.id}`,
+    },
+    openGraph: {
+      title: `${entity.title} — MoonWitness`,
+      description,
+      url: `/entity/${entity.id}`,
+      type: "article",
+    },
+    twitter: {
+      card: "summary",
+      title: `${entity.title} — MoonWitness`,
+      description,
+    },
+  };
 }
 
 export default async function EntityPage({ params }: PageProps) {
@@ -72,7 +125,8 @@ export default async function EntityPage({ params }: PageProps) {
     .map((relationship) =>
       relationship.from === id ? relationship.to : relationship.from
     )
-    .filter((relatedId, index, ids) => ids.indexOf(relatedId) === index);
+    .filter((relatedId, index, ids) => ids.indexOf(relatedId) === index)
+    .filter((relatedId) => Boolean(getEntity(relatedId)));
 
   const fields = Object.entries(entity.data as Record<string, unknown>).filter(
     ([key]) => !hiddenFields.has(key)
@@ -163,15 +217,6 @@ export default async function EntityPage({ params }: PageProps) {
             );
           })}
         </div>
-      </section>
-
-      <section className="rail">
-        <details className="entity-debug">
-          <summary>RAW NODE DATA</summary>
-          <pre className="entity-json">
-            {JSON.stringify(entity.data, null, 2)}
-          </pre>
-        </details>
       </section>
     </main>
   );
