@@ -64,16 +64,15 @@ Only after the preceding gates are complete:
 
 ## First release status
 
-The repository declares version `0.1.0`.
+MoonWitness v0.1.0 is published and verified.
 
-Production verification prerequisites are complete:
+- Tag: `v0.1.0`
+- GitHub Release: `MoonWitness v0.1.0 — First Witness`
+- Release ID: `393230025`
+- Verified release SHA: `dd0d710fd92bd82ffc271148b0c02a62f25db792`
+- Production deployment: `dpl_8ThVEtisMjs3k2CJwM94gYMcrjsX`
+- Production URL: `https://moonwitness-ii-web.vercel.app`
+- Required live routes: HTTP 200
+- Recent Vercel runtime errors: none
 
-- Issue #7: closed/completed.
-- Vercel project: `prj_IWnhw1x7H2wyUvFPkfHPQcAxdFRO`.
-- Verified production deployment: `dpl_76FVCAxbjm5aHTth7N4Aez4zJJKt`.
-- Production URL: `https://moonwitness-ii-web.vercel.app`.
-- Verified deployed SHA: `01b0d410624a28430cc31edbea5f92fe67cb5a9e`.
-- Required live routes returned HTTP 200 with non-empty responses.
-- Recent Vercel runtime-error check found no runtime errors.
-
-The remaining release-process step is to create the Git tag and GitHub Release from the final verified release commit, then confirm that the tag/release SHA matches the production deployment.
+For future releases, repeat the full checklist against the intended release commit and do not reuse old deployment evidence.

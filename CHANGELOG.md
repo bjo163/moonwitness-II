@@ -2,9 +2,21 @@
 
 All notable MoonWitness changes will be recorded here.
 
-The project follows semantic versioning for tagged releases. No production release is declared until the deployment and release checklist is complete.
+The project follows semantic versioning for tagged releases.
 
 ## Unreleased
+
+### Added
+
+- Lightweight Vercel Web Analytics instrumentation.
+- Vercel Speed Insights instrumentation.
+
+### Changed
+
+- Primary navigation is focused on Story, Lore, Explore, Archive, and Journey.
+- Dependabot major updates for TypeScript, ESLint, and Node types are held for deliberate compatibility migrations.
+
+## 0.1.0 — 2026-09-21
 
 ### Added
 
@@ -23,13 +35,10 @@ The project follows semantic versioning for tagged releases. No production relea
 
 ### Production verification
 
-- Vercel project `moonwitness-ii-web` is connected to `bjo163/moonwitness-II`.
-- Production deployment `dpl_76FVCAxbjm5aHTth7N4Aez4zJJKt` reached `READY` from `main`.
-- Verified deployed SHA: `01b0d410624a28430cc31edbea5f92fe67cb5a9e`.
+- Release tag: `v0.1.0`.
+- Release title: `MoonWitness v0.1.0 — First Witness`.
+- Verified release SHA: `dd0d710fd92bd82ffc271148b0c02a62f25db792`.
 - Production URL: `https://moonwitness-ii-web.vercel.app`.
-- Six release smoke routes returned HTTP 200 with non-empty responses.
-- No recent Vercel runtime errors were reported after verification.
-
-### Release status
-
-Production verification is complete. The Unreleased section remains open until the first Git tag and GitHub Release are created from the final verified release commit.
+- Production deployment `dpl_8ThVEtisMjs3k2CJwM94gYMcrjsX` reached `READY`.
+- Required live routes returned HTTP 200 with non-empty responses.
+- No recent Vercel runtime errors were reported after final release verification.

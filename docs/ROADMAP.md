@@ -109,7 +109,33 @@
 - [x] Add contribution and security guidance
 - [x] Establish an unreleased changelog baseline
 - [x] Add a release checklist gated by production deployment evidence
-- [ ] Create the first tagged production release only after Issue #7 is complete
+- [x] Create and verify the first tagged production release (`v0.1.0`)
+
+### Phase 5D — Release closeout
+
+- [x] Publish and verify `v0.1.0`
+- [x] Align roadmap, changelog, and release documentation with the published release
+- [x] Triage incompatible major dependency upgrades
+- [x] Keep Node.js runtime and Node type definitions aligned
+- [x] Prevent routine Dependabot major upgrades for TypeScript, ESLint, and Node types
+
+## PHASE 6 — LEARN BEFORE SCALING
+
+**Goal:** improve how people understand and experience MoonWitness before adding backend infrastructure.
+
+### Phase 6A — Product learning
+
+- [x] Add lightweight Vercel Web Analytics instrumentation
+- [x] Add Vercel Speed Insights instrumentation
+- [x] Keep analytics dependency-light and avoid a custom analytics backend
+- [ ] Review real traffic and web-vital signals before introducing further infrastructure
+
+### Phase 6B — Navigation clarity
+
+- [x] Reduce primary navigation to Story, Lore, Explore, Archive, and Journey
+- [x] Keep Home accessible through the MoonWitness brand
+- [x] Preserve specialist narrative surfaces through contextual links and discovery
+- [ ] Validate navigation behavior with real usage signals
 
 Possible later additions, still usage-gated:
 
@@ -120,21 +146,22 @@ Possible later additions, still usage-gated:
 - External search service
 - API
 - Graph services
-- Analytics
+- Custom analytics backend
 
 > **Do not add infrastructure merely because Phase 5 exists. Complexity must still earn its place.**
 
-## POST-PHASE 4 — VERIFICATION
+## PRODUCTION & RELEASE VERIFICATION
 
-GitHub runtime, build, deployment-trace, production deployment, and live-route verification are complete.
+MoonWitness v0.1.0 is published and production-verified.
 
-Verified production evidence:
-
-- Vercel project: `moonwitness-ii-web` (`prj_IWnhw1x7H2wyUvFPkfHPQcAxdFRO`)
-- Production deployment: `dpl_76FVCAxbjm5aHTth7N4Aez4zJJKt`
+- Git tag: `v0.1.0`
+- GitHub Release: `MoonWitness v0.1.0 — First Witness`
+- Verified release SHA: `dd0d710fd92bd82ffc271148b0c02a62f25db792`
 - Production URL: `https://moonwitness-ii-web.vercel.app`
-- Verified deployed SHA: `01b0d410624a28430cc31edbea5f92fe67cb5a9e`
-- Live routes `/`, `/explore`, `/lore`, `/storytelling`, `/constellation`, and `/entity/era_00`: HTTP 200
-- Recent Vercel runtime-error check: no runtime errors found
+- Production deployment: `dpl_8ThVEtisMjs3k2CJwM94gYMcrjsX`
+- Content Validation #244: SUCCESS
+- Platform Build #184: SUCCESS
+- Required live routes: HTTP 200
+- Recent Vercel runtime-error check: no runtime errors
 
-Issue #7 is complete. The remaining release-process task is to create the first Git tag/GitHub Release after the final release commit is deployed and verified.
+Post-v0.1.0 work should optimize learning, navigation, accessibility, and content quality before introducing new infrastructure.
