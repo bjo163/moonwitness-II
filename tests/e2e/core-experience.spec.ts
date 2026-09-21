@@ -6,13 +6,13 @@ test("primary navigation leads into the core journey", async ({ page }) => {
 
   const nav = page.getByRole("navigation", { name: "Primary" });
   await expect(nav.getByRole("link")).toHaveCount(5);
-  await expect(nav.getByRole("link", { name: "Story" })).toBeVisible();
-  await expect(nav.getByRole("link", { name: "Lore" })).toBeVisible();
-  await expect(nav.getByRole("link", { name: "Explore" })).toBeVisible();
-  await expect(nav.getByRole("link", { name: "Archive" })).toBeVisible();
-  await expect(nav.getByRole("link", { name: "Journey" })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Story", exact: true })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Lore", exact: true })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Explore", exact: true })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Archive", exact: true })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Journey", exact: true })).toBeVisible();
 
-  await nav.getByRole("link", { name: "Story" }).click();
+  await nav.getByRole("link", { name: "Story", exact: true }).click();
   await expect(page).toHaveURL(/\/storytelling$/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "THE STORY BEGINS HERE"
