@@ -50,6 +50,8 @@ NEXT ERA
 
 The web app is an interface to the platform. The repository is the source of truth for the platform's content and contracts.
 
+**Production:** https://moonwitness-ii-web.vercel.app
+
 ## Current Web Surfaces
 
 ```
