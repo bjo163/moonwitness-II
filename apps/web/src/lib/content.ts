@@ -223,6 +223,32 @@ const loadYaml = <T>(relativePath: string): T => {
   return YAML.parse(fs.readFileSync(absolutePath, "utf8")) as T;
 };
 
+type ContentVisibility = "public" | "unlisted" | "archived" | "private";
+
+const getContentVisibility = (value: unknown): ContentVisibility => {
+  if (typeof value !== "object" || value === null) return "public";
+
+  const visibility = (value as Record<string, unknown>).visibility;
+  if (
+    visibility === "public" ||
+    visibility === "unlisted" ||
+    visibility === "archived" ||
+    visibility === "private"
+  ) {
+    return visibility;
+  }
+
+  return "public";
+};
+
+const isDirectlyVisible = (value: unknown) => {
+  const visibility = getContentVisibility(value);
+  return visibility === "public" || visibility === "unlisted";
+};
+
+const isDiscoverable = (value: unknown) => getContentVisibility(value) === "public";
+
+
 export const getEras = () => loadYaml<{ version: string; eras: Era[] }>("data/eras.yaml").eras;
 export const getCharacters = () =>
   loadYaml<{ version: string; characters: Character[] }>("data/characters.yaml").characters;
@@ -283,26 +309,26 @@ export type EntitySummary = {
 
 export const getEntitySummaries = (): EntitySummary[] => {
   const summaries: EntitySummary[] = [
-    ...getCharacters().map((item) => ({ id: item.id, type: "CHARACTER", title: item.name })),
-    ...getEras().map((item) => ({ id: item.id, type: "ERA", title: item.title })),
-    ...getEvents().map((item) => ({ id: item.id, type: "EVENT", title: item.title })),
-    ...getWitnesses().map((item) => ({ id: item.id, type: "WITNESS", title: item.id })),
-    ...getMessages().map((item) => ({ id: item.id, type: "MESSAGE", title: item.title ?? item.message })),
-    ...getExposures().map((item) => ({ id: item.id, type: "EXPOSURE", title: item.title })),
-    ...getSeductionEntries().map((item) => ({ id: item.id, type: "SEDUCTION", title: item.title })),
-    ...getFaultLines().map((item) => ({ id: item.id, type: "FAULT_LINE", title: item.title })),
-    ...getPastPresences().map((item) => ({ id: item.id, type: "PAST_PRESENCE", title: item.title })),
-    ...getChanges().map((item) => ({ id: item.id, type: "CHANGE", title: item.title ?? item.id })),
-    ...getPromoting().map((item) => ({ id: item.id, type: "PROMOTING", title: item.title })),
-    ...getVillains().map((item) => ({ id: item.id, type: "VILLAIN", title: item.title })),
-    ...getSanityLastBreath().map((item) => ({ id: item.id, type: "SANITY_LAST_BREATH", title: item.title })),
-    ...getChangeAdvisoryBoard().map((item) => ({ id: item.id, type: "CHANGE_ADVISORY_BOARD", title: item.title })),
-    ...getChasingHeart().map((item) => ({ id: item.id, type: "CHASING_HEART", title: item.title })),
-    ...getLovestruck().map((item) => ({ id: item.id, type: "LOVESTRUCK", title: item.title })),
-    ...getBreathElectric().map((item) => ({ id: item.id, type: "BREATH_ELECTRIC", title: item.title })),
-    ...getEndOfAnEra().map((item) => ({ id: item.id, type: "END_OF_AN_ERA", title: item.title })),
-    ...getConflicts().map((item) => ({ id: item.id, type: "CONFLICT", title: item.title })),
-    ...getStories().map((item) => ({ id: item.id, type: "STORY", title: item.title }))
+    ...getCharacters().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CHARACTER", title: item.name })),
+    ...getEras().filter(isDiscoverable).map((item) => ({ id: item.id, type: "ERA", title: item.title })),
+    ...getEvents().filter(isDiscoverable).map((item) => ({ id: item.id, type: "EVENT", title: item.title })),
+    ...getWitnesses().filter(isDiscoverable).map((item) => ({ id: item.id, type: "WITNESS", title: item.id })),
+    ...getMessages().filter(isDiscoverable).map((item) => ({ id: item.id, type: "MESSAGE", title: item.title ?? item.message })),
+    ...getExposures().filter(isDiscoverable).map((item) => ({ id: item.id, type: "EXPOSURE", title: item.title })),
+    ...getSeductionEntries().filter(isDiscoverable).map((item) => ({ id: item.id, type: "SEDUCTION", title: item.title })),
+    ...getFaultLines().filter(isDiscoverable).map((item) => ({ id: item.id, type: "FAULT_LINE", title: item.title })),
+    ...getPastPresences().filter(isDiscoverable).map((item) => ({ id: item.id, type: "PAST_PRESENCE", title: item.title })),
+    ...getChanges().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CHANGE", title: item.title ?? item.id })),
+    ...getPromoting().filter(isDiscoverable).map((item) => ({ id: item.id, type: "PROMOTING", title: item.title })),
+    ...getVillains().filter(isDiscoverable).map((item) => ({ id: item.id, type: "VILLAIN", title: item.title })),
+    ...getSanityLastBreath().filter(isDiscoverable).map((item) => ({ id: item.id, type: "SANITY_LAST_BREATH", title: item.title })),
+    ...getChangeAdvisoryBoard().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CHANGE_ADVISORY_BOARD", title: item.title })),
+    ...getChasingHeart().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CHASING_HEART", title: item.title })),
+    ...getLovestruck().filter(isDiscoverable).map((item) => ({ id: item.id, type: "LOVESTRUCK", title: item.title })),
+    ...getBreathElectric().filter(isDiscoverable).map((item) => ({ id: item.id, type: "BREATH_ELECTRIC", title: item.title })),
+    ...getEndOfAnEra().filter(isDiscoverable).map((item) => ({ id: item.id, type: "END_OF_AN_ERA", title: item.title })),
+    ...getConflicts().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CONFLICT", title: item.title })),
+    ...getStories().filter(isDiscoverable).map((item) => ({ id: item.id, type: "STORY", title: item.title }))
   ];
 
   const lookup = new Map(summaries.map((summary) => [summary.id, summary]));
@@ -398,7 +424,7 @@ export const getFirstLoop = () => {
   };
 };
 
-export const getEntity = (id: string) => {
+const getRawEntity = (id: string) => {
   const character = getCharacters().find((item) => item.id === id);
   if (character) return { id, type: "CHARACTER", title: character.name, data: character };
 
@@ -445,11 +471,18 @@ export const getEntity = (id: string) => {
   return null;
 };
 
+export const getEntity = (id: string) => {
+  const entity = getRawEntity(id);
+  return entity && isDirectlyVisible(entity.data) ? entity : null;
+};
 
 export const getAllEntities = () => {
   return getGraph().nodes
     .map((id) => getEntity(id))
-    .filter((entity): entity is NonNullable<ReturnType<typeof getEntity>> => Boolean(entity));
+    .filter(
+      (entity): entity is NonNullable<ReturnType<typeof getEntity>> =>
+        Boolean(entity) && isDiscoverable(entity?.data)
+    );
 };
 
 const collectSearchValues = (value: unknown): string[] => {
