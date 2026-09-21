@@ -216,40 +216,64 @@ type FirstLoopManifest = {
   change: string;
 };
 
-const root = path.resolve(process.cwd(), "../..");
-
 const loadYaml = <T>(relativePath: string): T => {
-  const absolutePath = path.join(root, relativePath);
+  const absolutePath = path.join(process.cwd(), "../../data", relativePath);
   return YAML.parse(fs.readFileSync(absolutePath, "utf8")) as T;
 };
 
-export const getEras = () => loadYaml<{ version: string; eras: Era[] }>("data/eras.yaml").eras;
+type ContentVisibility = "public" | "unlisted" | "archived" | "private";
+
+const getContentVisibility = (value: unknown): ContentVisibility => {
+  if (typeof value !== "object" || value === null) return "public";
+
+  const visibility = (value as Record<string, unknown>).visibility;
+  if (
+    visibility === "public" ||
+    visibility === "unlisted" ||
+    visibility === "archived" ||
+    visibility === "private"
+  ) {
+    return visibility;
+  }
+
+  return "public";
+};
+
+const isDirectlyVisible = (value: unknown) => {
+  const visibility = getContentVisibility(value);
+  return visibility === "public" || visibility === "unlisted";
+};
+
+const isDiscoverable = (value: unknown) => getContentVisibility(value) === "public";
+
+
+export const getEras = () => loadYaml<{ version: string; eras: Era[] }>("eras.yaml").eras;
 export const getCharacters = () =>
-  loadYaml<{ version: string; characters: Character[] }>("data/characters.yaml").characters;
+  loadYaml<{ version: string; characters: Character[] }>("characters.yaml").characters;
 
 export const getEvents = () =>
-  loadYaml<{ version: string; events: Event[] }>("data/events.yaml").events;
+  loadYaml<{ version: string; events: Event[] }>("events.yaml").events;
 
 export const getWitnesses = () =>
-  loadYaml<{ version: string; witnesses: Witness[] }>("data/witnesses.yaml").witnesses;
+  loadYaml<{ version: string; witnesses: Witness[] }>("witnesses.yaml").witnesses;
 
 export const getMessages = () =>
-  loadYaml<{ version: string; messages: Message[] }>("data/messages.yaml").messages;
+  loadYaml<{ version: string; messages: Message[] }>("messages.yaml").messages;
 
 export const getExposures = () =>
-  loadYaml<{ version: string; exposures: Exposure[] }>("data/exposures.yaml").exposures;
+  loadYaml<{ version: string; exposures: Exposure[] }>("exposures.yaml").exposures;
 
 export const getSeductionEntries = () =>
-  loadYaml<{ version: string; seductions: Seduction[] }>("data/seductions.yaml").seductions;
+  loadYaml<{ version: string; seductions: Seduction[] }>("seductions.yaml").seductions;
 
 export const getFaultLines = () =>
-  loadYaml<{ version: string; fault_lines: FaultLine[] }>("data/fault-lines.yaml").fault_lines;
+  loadYaml<{ version: string; fault_lines: FaultLine[] }>("fault-lines.yaml").fault_lines;
 
 export const getPastPresences = () =>
-  loadYaml<{ version: string; past_presences: PastPresence[] }>("data/past-presence.yaml").past_presences;
+  loadYaml<{ version: string; past_presences: PastPresence[] }>("past-presence.yaml").past_presences;
 
 export const getChanges = () =>
-  loadYaml<{ version: string; changes: Change[] }>("data/changes.yaml").changes;
+  loadYaml<{ version: string; changes: Change[] }>("changes.yaml").changes;
 
 const getNarrativeEntries = (relativePath: string, key: string): NarrativeEntry[] => {
   const data = loadYaml<Record<string, unknown>>(relativePath);
@@ -257,23 +281,23 @@ const getNarrativeEntries = (relativePath: string, key: string): NarrativeEntry[
   return Array.isArray(entries) ? (entries as NarrativeEntry[]) : [];
 };
 
-export const getPromoting = () => getNarrativeEntries("data/promoting.yaml", "promoting");
-export const getVillains = () => getNarrativeEntries("data/villains.yaml", "villains");
-export const getSanityLastBreath = () => getNarrativeEntries("data/sanity-last-breath.yaml", "sanity_last_breath");
-export const getChangeAdvisoryBoard = () => getNarrativeEntries("data/change-advisory-board.yaml", "change_advisory_board");
-export const getChasingHeart = () => getNarrativeEntries("data/chasing-heart.yaml", "chasing_heart");
-export const getLovestruck = () => getNarrativeEntries("data/lovestruck.yaml", "lovestruck");
-export const getBreathElectric = () => getNarrativeEntries("data/breath-electric.yaml", "breath_electric");
-export const getEndOfAnEra = () => getNarrativeEntries("data/end-of-an-era.yaml", "end_of_an_era");
-export const getConflicts = () => getNarrativeEntries("data/conflicts.yaml", "conflicts");
+export const getPromoting = () => getNarrativeEntries("promoting.yaml", "promoting");
+export const getVillains = () => getNarrativeEntries("villains.yaml", "villains");
+export const getSanityLastBreath = () => getNarrativeEntries("sanity-last-breath.yaml", "sanity_last_breath");
+export const getChangeAdvisoryBoard = () => getNarrativeEntries("change-advisory-board.yaml", "change_advisory_board");
+export const getChasingHeart = () => getNarrativeEntries("chasing-heart.yaml", "chasing_heart");
+export const getLovestruck = () => getNarrativeEntries("lovestruck.yaml", "lovestruck");
+export const getBreathElectric = () => getNarrativeEntries("breath-electric.yaml", "breath_electric");
+export const getEndOfAnEra = () => getNarrativeEntries("end-of-an-era.yaml", "end_of_an_era");
+export const getConflicts = () => getNarrativeEntries("conflicts.yaml", "conflicts");
 export const getStories = () =>
-  loadYaml<{ version: string; stories: Story[] }>("data/stories.yaml").stories;
+  loadYaml<{ version: string; stories: Story[] }>("stories.yaml").stories;
 
 export const getRelationships = () =>
-  loadYaml<{ version: string; relationships: Relationship[] }>("data/relationships.yaml").relationships;
+  loadYaml<{ version: string; relationships: Relationship[] }>("relationships.yaml").relationships;
 
 export const getGraph = () =>
-  loadYaml<{ version: string; graph: { nodes: string[]; traversal: string[] } }>("data/graph.yaml").graph;
+  loadYaml<{ version: string; graph: { nodes: string[]; traversal: string[] } }>("graph.yaml").graph;
 
 export type EntitySummary = {
   id: string;
@@ -283,26 +307,26 @@ export type EntitySummary = {
 
 export const getEntitySummaries = (): EntitySummary[] => {
   const summaries: EntitySummary[] = [
-    ...getCharacters().map((item) => ({ id: item.id, type: "CHARACTER", title: item.name })),
-    ...getEras().map((item) => ({ id: item.id, type: "ERA", title: item.title })),
-    ...getEvents().map((item) => ({ id: item.id, type: "EVENT", title: item.title })),
-    ...getWitnesses().map((item) => ({ id: item.id, type: "WITNESS", title: item.id })),
-    ...getMessages().map((item) => ({ id: item.id, type: "MESSAGE", title: item.title ?? item.message })),
-    ...getExposures().map((item) => ({ id: item.id, type: "EXPOSURE", title: item.title })),
-    ...getSeductionEntries().map((item) => ({ id: item.id, type: "SEDUCTION", title: item.title })),
-    ...getFaultLines().map((item) => ({ id: item.id, type: "FAULT_LINE", title: item.title })),
-    ...getPastPresences().map((item) => ({ id: item.id, type: "PAST_PRESENCE", title: item.title })),
-    ...getChanges().map((item) => ({ id: item.id, type: "CHANGE", title: item.title ?? item.id })),
-    ...getPromoting().map((item) => ({ id: item.id, type: "PROMOTING", title: item.title })),
-    ...getVillains().map((item) => ({ id: item.id, type: "VILLAIN", title: item.title })),
-    ...getSanityLastBreath().map((item) => ({ id: item.id, type: "SANITY_LAST_BREATH", title: item.title })),
-    ...getChangeAdvisoryBoard().map((item) => ({ id: item.id, type: "CHANGE_ADVISORY_BOARD", title: item.title })),
-    ...getChasingHeart().map((item) => ({ id: item.id, type: "CHASING_HEART", title: item.title })),
-    ...getLovestruck().map((item) => ({ id: item.id, type: "LOVESTRUCK", title: item.title })),
-    ...getBreathElectric().map((item) => ({ id: item.id, type: "BREATH_ELECTRIC", title: item.title })),
-    ...getEndOfAnEra().map((item) => ({ id: item.id, type: "END_OF_AN_ERA", title: item.title })),
-    ...getConflicts().map((item) => ({ id: item.id, type: "CONFLICT", title: item.title })),
-    ...getStories().map((item) => ({ id: item.id, type: "STORY", title: item.title }))
+    ...getCharacters().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CHARACTER", title: item.name })),
+    ...getEras().filter(isDiscoverable).map((item) => ({ id: item.id, type: "ERA", title: item.title })),
+    ...getEvents().filter(isDiscoverable).map((item) => ({ id: item.id, type: "EVENT", title: item.title })),
+    ...getWitnesses().filter(isDiscoverable).map((item) => ({ id: item.id, type: "WITNESS", title: item.id })),
+    ...getMessages().filter(isDiscoverable).map((item) => ({ id: item.id, type: "MESSAGE", title: item.title ?? item.message })),
+    ...getExposures().filter(isDiscoverable).map((item) => ({ id: item.id, type: "EXPOSURE", title: item.title })),
+    ...getSeductionEntries().filter(isDiscoverable).map((item) => ({ id: item.id, type: "SEDUCTION", title: item.title })),
+    ...getFaultLines().filter(isDiscoverable).map((item) => ({ id: item.id, type: "FAULT_LINE", title: item.title })),
+    ...getPastPresences().filter(isDiscoverable).map((item) => ({ id: item.id, type: "PAST_PRESENCE", title: item.title })),
+    ...getChanges().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CHANGE", title: item.title ?? item.id })),
+    ...getPromoting().filter(isDiscoverable).map((item) => ({ id: item.id, type: "PROMOTING", title: item.title })),
+    ...getVillains().filter(isDiscoverable).map((item) => ({ id: item.id, type: "VILLAIN", title: item.title })),
+    ...getSanityLastBreath().filter(isDiscoverable).map((item) => ({ id: item.id, type: "SANITY_LAST_BREATH", title: item.title })),
+    ...getChangeAdvisoryBoard().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CHANGE_ADVISORY_BOARD", title: item.title })),
+    ...getChasingHeart().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CHASING_HEART", title: item.title })),
+    ...getLovestruck().filter(isDiscoverable).map((item) => ({ id: item.id, type: "LOVESTRUCK", title: item.title })),
+    ...getBreathElectric().filter(isDiscoverable).map((item) => ({ id: item.id, type: "BREATH_ELECTRIC", title: item.title })),
+    ...getEndOfAnEra().filter(isDiscoverable).map((item) => ({ id: item.id, type: "END_OF_AN_ERA", title: item.title })),
+    ...getConflicts().filter(isDiscoverable).map((item) => ({ id: item.id, type: "CONFLICT", title: item.title })),
+    ...getStories().filter(isDiscoverable).map((item) => ({ id: item.id, type: "STORY", title: item.title }))
   ];
 
   const lookup = new Map(summaries.map((summary) => [summary.id, summary]));
@@ -364,7 +388,7 @@ export const getStoryTraces = (storyId: string): NarrativeTrace[] => {
 };
 
 export const getFirstLoop = () => {
-  const manifest = loadYaml<FirstLoopManifest>("data/first-loop.yaml");
+  const manifest = loadYaml<FirstLoopManifest>("first-loop.yaml");
   const event = getEvents().find((item) => item.id === manifest.event);
   const witness = getWitnesses().find((item) => item.id === manifest.witness);
   const message = getMessages().find((item) => item.id === manifest.message);
@@ -398,7 +422,7 @@ export const getFirstLoop = () => {
   };
 };
 
-export const getEntity = (id: string) => {
+const getRawEntity = (id: string) => {
   const character = getCharacters().find((item) => item.id === id);
   if (character) return { id, type: "CHARACTER", title: character.name, data: character };
 
@@ -445,11 +469,18 @@ export const getEntity = (id: string) => {
   return null;
 };
 
+export const getEntity = (id: string) => {
+  const entity = getRawEntity(id);
+  return entity && isDirectlyVisible(entity.data) ? entity : null;
+};
 
 export const getAllEntities = () => {
   return getGraph().nodes
     .map((id) => getEntity(id))
-    .filter((entity): entity is NonNullable<ReturnType<typeof getEntity>> => Boolean(entity));
+    .filter(
+      (entity): entity is NonNullable<ReturnType<typeof getEntity>> =>
+        Boolean(entity) && isDiscoverable(entity?.data)
+    );
 };
 
 const collectSearchValues = (value: unknown): string[] => {

@@ -17,6 +17,12 @@ const fail = (message) => {
   process.exitCode = 1;
 };
 
+let warningCount = 0;
+const warn = (message) => {
+  warningCount += 1;
+  console.warn(`[moonwitness] WARN: ${message}`);
+};
+
 const datasets = {
   eras: readYaml("data/eras.yaml"),
   characters: readYaml("data/characters.yaml"),
@@ -44,6 +50,7 @@ const datasets = {
 };
 
 const ids = new Set();
+const entityMetadata = new Map();
 const register = (id, source) => {
   if (!id || typeof id !== "string") {
     fail(`Invalid ID in ${source}`);
@@ -80,15 +87,57 @@ const collectionEntries = [
 ];
 
 for (const [source, items] of collectionEntries) {
-  for (const item of items ?? []) register(item.id, `data/${source}`);
+  for (const item of items ?? []) {
+    register(item.id, `data/${source}`);
+    if (typeof item.id === "string") {
+      entityMetadata.set(item.id, { source: `data/${source}`, item });
+    }
+  }
 }
 
+const relationshipEdges = new Set();
 for (const relationship of datasets.relationships.relationships ?? []) {
   register(relationship.id, "data/relationships.yaml");
+
+  if (typeof relationship.id === "string") {
+    entityMetadata.set(relationship.id, {
+      source: "data/relationships.yaml",
+      item: relationship,
+    });
+  }
+
+  const edgeKey = [relationship.from, relationship.to, relationship.type].join("::");
+  if (relationshipEdges.has(edgeKey)) {
+    warn(
+      `Duplicate relationship edge: ${relationship.from} → ${relationship.to} (${relationship.type})`
+    );
+  }
+  relationshipEdges.add(edgeKey);
+}
+
+const graphNodes = datasets.graph.graph?.nodes ?? [];
+const seenGraphNodes = new Set();
+
+for (const id of graphNodes) {
+  if (seenGraphNodes.has(id)) {
+    fail(`Duplicate graph node: ${id}`);
+  }
+  seenGraphNodes.add(id);
+
+  const metadata = entityMetadata.get(id);
+  const visibility = metadata?.item?.visibility;
+
+  if (visibility === "private" || visibility === "archived") {
+    fail(`Non-public node exposed through graph: ${id} (${visibility})`);
+  }
+
+  if (visibility === "unlisted") {
+    warn(`Unlisted node appears in graph and will be excluded from public discovery: ${id}`);
+  }
 }
 
 const referencedIds = [
-  ...(datasets.graph.graph?.nodes ?? []),
+  ...graphNodes,
   ...((datasets.relationships.relationships ?? []).flatMap((r) => [r.from, r.to])),
 ];
 
@@ -146,6 +195,14 @@ const validateMetadata = (items, source) => {
     if (item.visibility && !requiredVisibilities.has(item.visibility)) {
       fail(`Unknown visibility "${item.visibility}" in ${source}`);
     }
+
+    if (
+      item.visibility === "public" &&
+      (item.canon_level === "canon" || item.canon_level === "lore") &&
+      (!item.provenance || typeof item.provenance !== "string")
+    ) {
+      warn(`Public ${item.canon_level} item lacks provenance in ${source}: ${item.id}`);
+    }
   }
 };
 
@@ -181,5 +238,9 @@ if (datasets.loop.version !== "0.1") {
 }
 
 if (!process.exitCode) {
-  console.log(`[moonwitness] PASS: ${ids.size} IDs registered, graph references resolved.`);
+  const warningSummary =
+    warningCount === 1 ? "1 structural warning" : `${warningCount} structural warnings`;
+  console.log(
+    `[moonwitness] PASS: ${ids.size} IDs registered, graph references resolved, ${warningSummary}.`
+  );
 }
