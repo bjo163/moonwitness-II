@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import path from "node:path";
 
 const host = "127.0.0.1";
 const port = 3456;
@@ -12,21 +13,15 @@ const routes = [
   "/entity/era_00"
 ];
 
-const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
+const repoRoot = process.cwd();
+const webRoot = path.join(repoRoot, "apps", "web");
+const nextBin = path.join(repoRoot, "node_modules", "next", "dist", "bin", "next");
+
 const server = spawn(
-  npmCommand,
-  [
-    "--prefix",
-    "apps/web",
-    "run",
-    "start",
-    "--",
-    "-H",
-    host,
-    "-p",
-    String(port)
-  ],
+  process.execPath,
+  [nextBin, "start", "-H", host, "-p", String(port)],
   {
+    cwd: webRoot,
     env: {
       ...process.env,
       NEXT_TELEMETRY_DISABLED: "1"
@@ -45,6 +40,20 @@ server.stderr.on("data", (chunk) => {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+async function fetchWithTimeout(url, timeoutMs = 5000) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(url, {
+      redirect: "manual",
+      signal: controller.signal
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function waitForServer() {
   for (let attempt = 0; attempt < 60; attempt += 1) {
     if (server.exitCode !== null) {
@@ -54,7 +63,7 @@ async function waitForServer() {
     }
 
     try {
-      const response = await fetch(baseUrl, { redirect: "manual" });
+      const response = await fetchWithTimeout(baseUrl, 1000);
       if (response.status >= 200 && response.status < 500) {
         return;
       }
@@ -72,9 +81,7 @@ async function waitForServer() {
 
 async function verifyRoutes() {
   for (const route of routes) {
-    const response = await fetch(`${baseUrl}${route}`, {
-      redirect: "manual"
-    });
+    const response = await fetchWithTimeout(`${baseUrl}${route}`);
 
     if (!response.ok) {
       throw new Error(
@@ -100,13 +107,15 @@ try {
 } finally {
   if (server.exitCode === null) {
     server.kill("SIGTERM");
-    await Promise.race([
-      new Promise((resolve) => server.once("exit", resolve)),
-      sleep(3000)
-    ]);
   }
+
+  await Promise.race([
+    new Promise((resolve) => server.once("exit", resolve)),
+    sleep(3000)
+  ]);
 
   if (server.exitCode === null) {
     server.kill("SIGKILL");
+    await new Promise((resolve) => server.once("exit", resolve));
   }
 }
