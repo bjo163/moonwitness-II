@@ -80,6 +80,18 @@ Then record:
 
 in GitHub Issue #7.
 
-## Current state
+## Verified production state
 
-GitHub-side build and runtime-smoke readiness is complete. Vercel project provisioning/linking remains an account-level action until an actual Vercel project and deployment are visible to the connected tooling.
+Production deployment is verified:
+
+- Project: `moonwitness-ii-web`
+- Project ID: `prj_IWnhw1x7H2wyUvFPkfHPQcAxdFRO`
+- Framework: Next.js
+- Production URL: `https://moonwitness-ii-web.vercel.app`
+- Verified deployment ID: `dpl_76FVCAxbjm5aHTth7N4Aez4zJJKt`
+- Verified deployed SHA: `01b0d410624a28430cc31edbea5f92fe67cb5a9e`
+- Deployment state: `READY`
+
+Live verification returned HTTP 200 with non-empty responses for `/`, `/explore`, `/lore`, `/storytelling`, `/constellation`, and `/entity/era_00`. A recent Vercel runtime-error check reported no runtime errors.
+
+Issue #7 is complete.
