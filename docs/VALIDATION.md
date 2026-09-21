@@ -1,6 +1,6 @@
 # MoonWitness Validation
 
-MoonWitness keeps its verification layer intentionally small, but the operational baseline now checks both canonical content and the production web application.
+MoonWitness keeps validation structural: protect the graph, deployment artifact, public-content boundary, and user journeys without trying to decide narrative truth.
 
 ## Install
 
@@ -16,14 +16,21 @@ npm ci
 npm run validate:content
 ```
 
-The content validator checks:
+Hard failures include:
 
 - Duplicate IDs.
-- Missing IDs.
-- Graph references to unknown entities.
-- Unsupported content statuses.
+- Duplicate graph nodes.
+- Missing or unknown graph references.
+- Unsupported content statuses, canon levels, or visibility values.
+- Private or archived nodes exposed through the public graph.
 
-It intentionally does **not** enforce the whole narrative.
+Non-destructive warnings include:
+
+- Duplicate relationship edges.
+- Public canon/lore records without provenance.
+- Unlisted nodes that appear in the graph but are excluded from public discovery.
+
+Warnings do not fail CI. The validator intentionally does **not** enforce narrative interpretation.
 
 ## Web quality gates
 
@@ -31,11 +38,29 @@ It intentionally does **not** enforce the whole narrative.
 npm run web:lint
 npm run web:typecheck
 npm run web:build
+npm run web:verify-trace
 npm run web:smoke
 ```
 
-The smoke test starts the production Next.js server and verifies core routes, including Home, Explorer, Lore, Storytelling, Constellation, and a canonical entity page.
+The production smoke test verifies server availability and core route responses. Deployment-trace verification ensures canonical YAML reaches the Next.js server bundle.
 
-GitHub Actions runs these gates using `npm ci`, so dependency installation is reproducible from `package-lock.json`.
+## Browser experience assurance
+
+After a production build:
+
+```bash
+npm run web:e2e
+```
+
+Playwright starts the production server and verifies:
+
+- focused primary navigation,
+- Story entry,
+- Explorer search/filter → canonical Entity flow,
+- robots.txt and sitemap.xml,
+- absence of raw canonical node dumps in public entity UI,
+- serious/critical accessibility violations on core routes.
+
+GitHub Actions runs browser experience validation in a separate workflow with Chromium.
 
 > Capture first. Refine later.
