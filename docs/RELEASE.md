@@ -21,9 +21,10 @@ npm run web:typecheck
 npm run web:build
 npm run web:verify-trace
 npm run web:smoke
+npm run web:e2e
 ```
 
-The matching GitHub Actions Content Validation and Platform Build runs must both be successful.
+The matching GitHub Actions Content Validation, Platform Build, and Experience Validation runs must all be successful.
 
 ## 3. Production deployment must be verified
 
