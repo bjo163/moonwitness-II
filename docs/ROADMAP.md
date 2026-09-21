@@ -80,19 +80,29 @@
 
 ## PHASE 5 — SCALE ONLY WHEN NEEDED
 
-Possible later additions:
+**Goal:** improve discovery and operational readiness without adding infrastructure before it earns its place.
+
+### Phase 5A — Search & scale readiness
+
+- [x] Search across canonical entity content and metadata
+- [x] Filter discovery results by node type
+- [x] Keep YAML as the source of truth
+- [x] Keep search dependency-free and server-rendered
+- [x] Verify Phase 5A through GitHub content validation and production build (PR #10: Content Validation #227, Platform Build #167)
+
+Possible later additions, still usage-gated:
 
 - Database
 - CMS
-- Search
 - Authentication
 - Moderation
+- External search service
 - API
 - Graph services
 - Analytics
 
-> **Do not build Phase 5 before Phase 3 proves useful.**
+> **Do not add infrastructure merely because Phase 5 exists. Complexity must still earn its place.**
 
 ## POST-PHASE 4 — VERIFICATION
 
-Implementation is complete. Runtime CI/build and Vercel deployment remain verification tasks because the connected execution environment has not exposed successful workflow/check results.
+GitHub runtime/build verification is complete on main. Content validation and the Next.js production build pass on commit `6b670dfea3d353e0264e5399b4e25d278eaa0e70`. Vercel deployment verification remains open in issue #7 until an actual connected deployment can be identified and verified.
