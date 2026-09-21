@@ -150,6 +150,10 @@ The web app reads canonical YAML content from `data/` through its server-side co
 - [Entity Model](docs/ENTITY_MODEL.md)
 - [Content Schema](docs/CONTENT_SCHEMA.md)
 - [Deployment](docs/DEPLOYMENT.md)
+- [Release Checklist](docs/RELEASE.md)
+- [Contributing](CONTRIBUTING.md)
+- [Security](SECURITY.md)
+- [Changelog](CHANGELOG.md)
 
 ## Philosophy
 

@@ -101,6 +101,16 @@
 - [x] Verify Phase 5B on PR #12 (Content Validation #231, Platform Build #171)
 - [ ] Verify an actual Vercel production deployment
 
+### Phase 5C — Release & governance readiness
+
+- [x] Add CODEOWNERS
+- [x] Configure automated npm dependency updates
+- [x] Add a pull request verification template
+- [x] Add contribution and security guidance
+- [x] Establish an unreleased changelog baseline
+- [x] Add a release checklist gated by production deployment evidence
+- [ ] Create the first tagged production release only after Issue #7 is complete
+
 Possible later additions, still usage-gated:
 
 - Database
@@ -116,4 +126,4 @@ Possible later additions, still usage-gated:
 
 ## POST-PHASE 4 — VERIFICATION
 
-GitHub runtime/build verification is complete on main. Content validation and the Next.js production build pass on commit `6b670dfea3d353e0264e5399b4e25d278eaa0e70`. Vercel deployment verification remains open in issue #7 until an actual connected deployment can be identified and verified.
+GitHub runtime, build, deployment-trace, and production-route smoke verification are complete on main. Commit `281b967f26dd63c1b7d4dccc87c9be2b916bccd3` passes Content Validation #237 and Platform Build #177, including canonical YAML server-trace verification. Vercel production deployment verification remains open in Issue #7 until an actual project, deployment, URL, and live-route evidence are recorded.
